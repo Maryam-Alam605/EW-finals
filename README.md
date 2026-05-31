@@ -1,1 +1,1 @@
-ew-finals.vercel.app
+https://ew-finals.vercel.app/
