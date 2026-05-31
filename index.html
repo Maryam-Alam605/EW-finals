@@ -1,0 +1,2540 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BUS 101 — Expository Writing Study Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600&family=Fira+Code:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0c;
+        --bg2: #111116;
+        --bg3: #18181f;
+        --bg4: #1e1e28;
+        --border: rgba(255, 255, 255, 0.07);
+        --border2: rgba(255, 255, 255, 0.12);
+        --text: #e8e8f0;
+        --text2: #9898b0;
+        --text3: #5a5a72;
+        --accent: #7c6af5;
+        --accent2: #a594ff;
+        --accent-glow: rgba(124, 106, 245, 0.15);
+        --teal: #3dd6c8;
+        --teal-dim: rgba(61, 214, 200, 0.1);
+        --amber: #f5a623;
+        --amber-dim: rgba(245, 166, 35, 0.1);
+        --red: #f56565;
+        --red-dim: rgba(245, 101, 101, 0.1);
+        --green: #48bb78;
+        --green-dim: rgba(72, 187, 120, 0.1);
+        --font-display: "Cormorant Garamond", serif;
+        --font-body: "Space Grotesk", sans-serif;
+        --font-mono: "Fira Code", monospace;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        font-size: 15px;
+        line-height: 1.7;
+        min-height: 100vh;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 0;
+      }
+      header {
+        padding: 3rem 2rem 2rem;
+        border-bottom: 0.5px solid var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+      header::after {
+        content: "";
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 200px;
+        background: radial-gradient(
+          ellipse,
+          rgba(124, 106, 245, 0.12) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .header-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .site-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent2);
+        margin-bottom: 0.75rem;
+      }
+      .site-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.8rem, 6vw, 5rem);
+        font-weight: 300;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+      }
+      .site-title em {
+        font-style: italic;
+        color: var(--accent2);
+      }
+      .site-desc {
+        margin-top: 0.75rem;
+        color: var(--text2);
+        font-size: 14px;
+        max-width: 500px;
+        font-weight: 300;
+      }
+      .chapter-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 2rem;
+      }
+      .pill {
+        padding: 6px 16px;
+        border-radius: 100px;
+        border: 0.5px solid var(--border2);
+        background: transparent;
+        color: var(--text2);
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 400;
+        cursor: pointer;
+        transition: all 0.2s;
+        letter-spacing: 0.02em;
+      }
+      .pill:hover {
+        border-color: var(--accent);
+        color: var(--text);
+        background: var(--accent-glow);
+      }
+      .pill.active {
+        background: var(--accent-glow);
+        border-color: var(--accent);
+        color: var(--accent2);
+        font-weight: 500;
+      }
+      .main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem 4rem;
+      }
+      .ch-header {
+        margin-bottom: 2rem;
+      }
+      .ch-num {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .ch-title {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 300;
+        line-height: 1.15;
+      }
+      .ch-sub {
+        color: var(--text2);
+        font-size: 14px;
+        margin-top: 4px;
+        font-weight: 300;
+      }
+      .tabs {
+        display: flex;
+        gap: 0;
+        border-bottom: 0.5px solid var(--border);
+        margin-bottom: 2.5rem;
+      }
+      .tab-btn {
+        padding: 10px 24px;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid transparent;
+        color: var(--text3);
+        font-family: var(--font-body);
+        font-size: 13px;
+        font-weight: 400;
+        cursor: pointer;
+        transition: all 0.2s;
+        letter-spacing: 0.04em;
+      }
+      .tab-btn:hover {
+        color: var(--text2);
+      }
+      .tab-btn.active {
+        color: var(--accent2);
+        border-bottom-color: var(--accent);
+        font-weight: 500;
+      }
+      .section-block {
+        margin-bottom: 2rem;
+      }
+      .section-label {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 0.5px;
+        background: var(--border);
+      }
+      .note-box {
+        background: var(--bg2);
+        border: 0.5px solid var(--border);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 12px;
+        transition: border-color 0.2s;
+      }
+      .note-box:hover {
+        border-color: var(--border2);
+      }
+      .note-intro {
+        color: var(--text2);
+        font-size: 14px;
+        margin-bottom: 10px;
+        line-height: 1.75;
+        font-weight: 300;
+      }
+      .note-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .note-list li {
+        padding-left: 20px;
+        position: relative;
+        font-size: 14px;
+        color: var(--text);
+        line-height: 1.65;
+      }
+      .note-list li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-size: 12px;
+      }
+      .note-list li strong,
+      .note-list li b {
+        color: var(--accent2);
+        font-weight: 500;
+      }
+      .highlight-box {
+        background: var(--accent-glow);
+        border: 0.5px solid rgba(124, 106, 245, 0.25);
+        border-radius: 10px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: var(--text);
+        line-height: 1.7;
+      }
+      .highlight-box strong {
+        color: var(--accent2);
+      }
+      .teal-box {
+        background: var(--teal-dim);
+        border: 0.5px solid rgba(61, 214, 200, 0.25);
+        border-radius: 10px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: var(--text);
+        line-height: 1.7;
+      }
+      .teal-box strong {
+        color: var(--teal);
+      }
+      .amber-box {
+        background: var(--amber-dim);
+        border: 0.5px solid rgba(245, 166, 35, 0.25);
+        border-radius: 10px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: var(--text);
+        line-height: 1.7;
+      }
+      .amber-box strong {
+        color: var(--amber);
+      }
+      .definition-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      .def-card {
+        background: var(--bg3);
+        border: 0.5px solid var(--border);
+        border-radius: 10px;
+        padding: 1rem 1.1rem;
+      }
+      .def-card .def-term {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        color: var(--teal);
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+      .def-card .def-text {
+        font-size: 13px;
+        color: var(--text2);
+        line-height: 1.55;
+      }
+      .fallacy-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      .fallacy-card {
+        background: var(--bg3);
+        border: 0.5px solid var(--border);
+        border-left: 2px solid var(--red);
+        border-radius: 0 10px 10px 0;
+        padding: 0.9rem 1rem;
+      }
+      .fallacy-name {
+        font-weight: 500;
+        font-size: 13px;
+        color: var(--red);
+        margin-bottom: 4px;
+      }
+      .fallacy-desc {
+        font-size: 13px;
+        color: var(--text2);
+        line-height: 1.55;
+      }
+      .five-w-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      .w-card {
+        background: var(--bg3);
+        border: 0.5px solid var(--border);
+        border-radius: 10px;
+        padding: 0.9rem 1rem;
+        text-align: center;
+      }
+      .w-letter {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--accent2);
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      .w-word {
+        font-size: 12px;
+        color: var(--text2);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        border: 0.5px solid var(--border);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+      }
+      thead tr {
+        background: var(--bg3);
+      }
+      th {
+        padding: 10px 14px;
+        text-align: left;
+        font-weight: 500;
+        color: var(--accent2);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-bottom: 0.5px solid var(--border);
+      }
+      td {
+        padding: 10px 14px;
+        border-bottom: 0.5px solid var(--border);
+        color: var(--text);
+        vertical-align: top;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:hover td {
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .word-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      .word-card {
+        background: var(--bg3);
+        border: 0.5px solid var(--border);
+        border-radius: 10px;
+        padding: 1rem 1.1rem;
+      }
+      .word-card-title {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+      .word-card.positive .word-card-title {
+        color: var(--green);
+      }
+      .word-card.negative .word-card-title {
+        color: var(--red);
+      }
+      .word-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .word-tag {
+        font-size: 12px;
+        padding: 3px 10px;
+        border-radius: 100px;
+        border: 0.5px solid;
+      }
+      .positive .word-tag {
+        border-color: rgba(72, 187, 120, 0.25);
+        color: var(--green);
+        background: var(--green-dim);
+      }
+      .negative .word-tag {
+        border-color: rgba(245, 101, 101, 0.25);
+        color: var(--red);
+        background: var(--red-dim);
+      }
+      .three-col {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      .outcome-card {
+        background: var(--bg3);
+        border: 0.5px solid var(--border);
+        border-radius: 10px;
+        padding: 1rem 1.1rem;
+      }
+      .outcome-card.win-win {
+        border-top: 2px solid var(--green);
+      }
+      .outcome-card.win-lose {
+        border-top: 2px solid var(--amber);
+      }
+      .outcome-card.lose-lose {
+        border-top: 2px solid var(--red);
+      }
+      .outcome-title {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      .win-win .outcome-title {
+        color: var(--green);
+      }
+      .win-lose .outcome-title {
+        color: var(--amber);
+      }
+      .lose-lose .outcome-title {
+        color: var(--red);
+      }
+      .outcome-desc {
+        font-size: 13px;
+        color: var(--text2);
+        line-height: 1.55;
+      }
+      .letter-demo {
+        background: var(--bg2);
+        border: 0.5px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 12px;
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        line-height: 2;
+        color: var(--text2);
+        white-space: pre-wrap;
+        overflow-x: auto;
+      }
+      .lbl {
+        color: var(--accent);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .val {
+        color: var(--text);
+      }
+      .score-strip {
+        background: var(--bg3);
+        border: 0.5px solid var(--border);
+        border-radius: 10px;
+        padding: 12px 18px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 1.5rem;
+        font-size: 14px;
+        flex-wrap: wrap;
+      }
+      .score-label {
+        color: var(--text2);
+      }
+      .score-val {
+        font-weight: 500;
+        color: var(--text);
+      }
+      .score-badge {
+        margin-left: auto;
+        padding: 3px 12px;
+        border-radius: 100px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+      }
+      .badge-great {
+        background: var(--green-dim);
+        color: var(--green);
+        border: 0.5px solid rgba(72, 187, 120, 0.3);
+      }
+      .badge-ok {
+        background: var(--amber-dim);
+        color: var(--amber);
+        border: 0.5px solid rgba(245, 166, 35, 0.3);
+      }
+      .badge-low {
+        background: var(--red-dim);
+        color: var(--red);
+        border: 0.5px solid rgba(245, 101, 101, 0.3);
+      }
+      .retry-btn {
+        margin-left: 8px;
+        padding: 4px 14px;
+        border-radius: 100px;
+        border: 0.5px solid var(--border2);
+        background: transparent;
+        color: var(--text2);
+        font-family: var(--font-body);
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .retry-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent2);
+      }
+      .q-block {
+        background: var(--bg2);
+        border: 0.5px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 14px;
+        transition: border-color 0.2s;
+      }
+      .q-block:hover {
+        border-color: var(--border2);
+      }
+      .q-num {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        color: var(--text3);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .q-text {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--text);
+        line-height: 1.6;
+        margin-bottom: 14px;
+      }
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+      .opt-btn {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 10px 14px;
+        background: var(--bg3);
+        border: 0.5px solid var(--border);
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: left;
+        color: var(--text);
+        font-family: var(--font-body);
+        font-size: 13px;
+        line-height: 1.55;
+        transition: all 0.15s;
+        width: 100%;
+      }
+      .opt-btn:hover:not(:disabled) {
+        border-color: var(--accent);
+        background: var(--accent-glow);
+      }
+      .opt-btn:disabled {
+        cursor: default;
+      }
+      .opt-letter {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text3);
+        min-width: 18px;
+        padding-top: 1px;
+        font-weight: 300;
+      }
+      .opt-btn.correct {
+        background: var(--green-dim);
+        border-color: rgba(72, 187, 120, 0.4);
+      }
+      .opt-btn.correct .opt-letter {
+        color: var(--green);
+      }
+      .opt-btn.wrong {
+        background: var(--red-dim);
+        border-color: rgba(245, 101, 101, 0.35);
+      }
+      .opt-btn.wrong .opt-letter {
+        color: var(--red);
+      }
+      .opt-btn.reveal {
+        background: var(--green-dim);
+        border-color: rgba(72, 187, 120, 0.4);
+      }
+      .opt-btn.reveal .opt-letter {
+        color: var(--green);
+      }
+      .explain {
+        margin-top: 12px;
+        padding: 10px 14px;
+        background: var(--bg4);
+        border-left: 2px solid var(--accent);
+        border-radius: 0 8px 8px 0;
+        font-size: 13px;
+        color: var(--text2);
+        line-height: 1.65;
+      }
+      .cw {
+        color: var(--green);
+        font-weight: 500;
+      }
+      .ww {
+        color: var(--red);
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="site-eyebrow">
+          BUS 101 · Exam Preparation — 100/100 MODE 🔥
+        </div>
+        <h1 class="site-title">Expository <em>Writing</em><br />Study Hub</h1>
+        <p class="site-desc">
+          Every fact. Every rule. Every concept. Six complete chapters — zero
+          gaps. Let's get that 100.
+        </p>
+        <div class="chapter-pills" id="chapterPills"></div>
+      </div>
+    </header>
+    <main class="main" id="mainContent"></main>
+    <script>
+      const META = [
+        {
+          num: "Chapter 01",
+          title: "The 7Cs — Completeness & Correctness",
+          sub: "Foundational principles of effective business communication",
+        },
+        {
+          num: "Chapter 02",
+          title: "Persuasive Messages",
+          sub: "Aristotle's triangle, Monroe's sequence, fallacies & behavioural economics",
+        },
+        {
+          num: "Chapter 03",
+          title: "Product Review Writing",
+          sub: "Paul Barrs 11-step template, GCSE structure & credibility",
+        },
+        {
+          num: "Chapter 04",
+          title: "Block Letter Format",
+          sub: "All 17 elements, exact spacing rules & punctuation conventions",
+        },
+        {
+          num: "Chapter 05",
+          title: "Negotiation Skills",
+          sub: "Outcomes, BATNA/WATNA, 4-step process & ethical negotiation",
+        },
+        {
+          num: "Chapter 06",
+          title: "Employment Interviews",
+          sub: "Types, stages, post-interview messages & application letters",
+        },
+      ];
+      const QS = [
+        [
+          {
+            q: "A business message is 'complete' when:",
+            opts: [
+              "It is as short as possible.",
+              "It contains all the facts the reader needs for the desired reaction.",
+              "It follows all formal grammar rules.",
+              "It is sent through the most expensive channel.",
+            ],
+            ans: 1,
+            ex: "Completeness ensures the receiver has all facts needed to respond or act.",
+          },
+          {
+            q: "Which method is recommended to ensure all necessary information is provided?",
+            opts: [
+              "The Five W's (who, what, when, where, why)",
+              "The Seven C's framework",
+              "The Three-Step revision process",
+              "The Active-Passive voice check",
+            ],
+            ans: 0,
+            ex: "The Five W's (+How) is the recommended completeness checklist.",
+          },
+          {
+            q: "What is the primary risk of ignoring questions in a business reply?",
+            opts: [
+              "It makes the message more concise.",
+              "The reader may think you are dishonest, hiding a weakness, or unfriendly.",
+              "It is considered standard professional practice.",
+              "It ensures the conversation remains formal.",
+            ],
+            ans: 1,
+            ex: "Unanswered questions signal dishonesty or unfriendliness — damaging goodwill.",
+          },
+          {
+            q: "What should you do if an inquiry is so poorly written you cannot answer it?",
+            opts: [
+              "Write back asking them to rewrite it.",
+              "Provide a form or list of questions for the inquirer to fill out.",
+              "Ignore it until they realize their mistake.",
+              "Guess the most likely intent.",
+            ],
+            ans: 1,
+            ex: "Sending a structured form or list of questions is more professional and efficient.",
+          },
+          {
+            q: "Which is NOT a direct benefit of complete communication?",
+            opts: [
+              "Building goodwill",
+              "Helping avert costly lawsuits",
+              "Ensuring the communicator sounds more extroverted",
+              "Achieving results without follow-up messages",
+            ],
+            ans: 2,
+            ex: "Extroversion is a source credibility factor, not a benefit of completeness.",
+          },
+          {
+            q: "What is the primary difference between 'imply' and 'infer'?",
+            opts: [
+              "The writer implies; the reader infers.",
+              "The reader implies; the writer infers.",
+              "Imply is for facts; infer is for opinions.",
+              "They are exact synonyms.",
+            ],
+            ans: 0,
+            ex: "Writers imply. Readers infer — they draw conclusions from what they read.",
+          },
+          {
+            q: "When should you use 'among' instead of 'between'?",
+            opts: [
+              "When referring to three or more people or items.",
+              "When items are being compared for a final decision.",
+              "When people are from different departments.",
+              "When you want to sound more formal.",
+            ],
+            ans: 0,
+            ex: "'Between' = two items. 'Among' = three or more items.",
+          },
+          {
+            q: "In the context of source credibility, 'Competence' refers to:",
+            opts: [
+              "Whether the sender is likeable.",
+              "Whether the sender is calm under stress.",
+              "Whether the sender is perceived as knowledgeable about their subject matter.",
+              "Whether the sender is honest.",
+            ],
+            ans: 2,
+            ex: "Competence = knowledge. Composure = calm. Sociability = likeable. Character = honest.",
+          },
+          {
+            q: "'His report was about managers, broken down by age and gender.' What is wrong?",
+            opts: [
+              "'Managers' should be plural.",
+              "A dangling modifier implies the managers, not the report, are broken down.",
+              "The sentence is too short.",
+              "Nothing is wrong.",
+            ],
+            ans: 1,
+            ex: "Dangling modifier — it reads as if the managers are 'broken down.' Fix: 'His report focused on age and gender of managers.'",
+          },
+          {
+            q: "Theodore Bernstein's study found shorter-sentence writing achieved comprehension of:",
+            opts: [
+              "43% vs 64% for longer sentences",
+              "64% vs 43% for longer sentences",
+              "80% vs 55% for longer sentences",
+              "72% vs 50% for longer sentences",
+            ],
+            ans: 1,
+            ex: "Shorter sentences achieved 64% comprehension vs only 43% for longer sentences.",
+          },
+          {
+            q: "Which of the following is an example of substandard language?",
+            opts: [
+              "Using 'among' for three items",
+              "Writing 'irregardless' or 'should of' in a business letter",
+              "Using an informal greeting in a social-business letter",
+              "Writing short sentences for clarity",
+            ],
+            ans: 1,
+            ex: "Substandard language = words unacceptable professionally, like 'irregardless,' 'should of,' 'could of.'",
+          },
+          {
+            q: "The Seven C's apply to:",
+            opts: [
+              "Only written communication",
+              "Only oral presentations",
+              "Individual sentences, complete documents, AND full presentations",
+              "Only formal business reports",
+            ],
+            ans: 2,
+            ex: "The Seven C's apply universally to sentences, documents, and full presentations.",
+          },
+          {
+            q: "The word 'effect' (with an 'e') is most correctly used as:",
+            opts: [
+              "A verb meaning to influence something",
+              "A noun meaning a result or consequence",
+              "A synonym for 'affect'",
+              "An adjective describing change",
+            ],
+            ans: 1,
+            ex: "'Effect' = noun (result). 'Affect' = verb (to influence or change).",
+          },
+          {
+            q: "According to the Rotary Club example, 'giving something extra' means:",
+            opts: [
+              "Sending multiple copies",
+              "Including directions, parking info, date, time, and program — not just the address",
+              "Adding a formal signature block",
+              "Writing longer paragraphs",
+            ],
+            ans: 1,
+            ex: "Don't just give the address — include all surrounding helpful information like directions, parking, date, time, and program.",
+          },
+          {
+            q: "Which proofreading rule is specifically mentioned for messages containing data?",
+            opts: [
+              "Always proofread on a hard copy",
+              "Use spell-check twice",
+              "Have someone else review it — authors often miss their own errors",
+              "Read it aloud to yourself",
+            ],
+            ans: 2,
+            ex: "The text explicitly states: if your message contains data, have someone else review it — authors often miss their own errors.",
+          },
+        ],
+        [
+          {
+            q: "Which is the PRIMARY purpose of persuasion?",
+            opts: [
+              "To build a good image of the communicator",
+              "To have the audience act or change beliefs",
+              "To cement a good relationship with the audience",
+              "To reduce future communication",
+            ],
+            ans: 1,
+            ex: "The primary purpose is to get the audience to act or change beliefs. All others are secondary.",
+          },
+          {
+            q: "Aristotle's 'Ethos' in the rhetorical triangle refers to:",
+            opts: [
+              "Using statistical data and logical evidence",
+              "The emotional connection the speaker creates",
+              "The speaker's credibility, expertise, and trustworthiness",
+              "The clarity and structure of the argument",
+            ],
+            ans: 2,
+            ex: "Ethos = credibility, built through expertise, track record, integrity. Logos = logic. Pathos = emotion.",
+          },
+          {
+            q: "In Monroe's Motivated Sequence, what is the role of the 'Visualization' step?",
+            opts: [
+              "To show slides or diagrams",
+              "To paint a vivid picture of positive outcomes if the plan succeeds vs. negative consequences if no action is taken",
+              "To summarize the data from the 'Satisfaction' step",
+              "To introduce the speaker's credentials",
+            ],
+            ans: 1,
+            ex: "Visualization makes the future tangible — feel what success looks like and what failure feels like.",
+          },
+          {
+            q: "'Either we adopt this new system today, or the entire project will fail.' Which fallacy is this?",
+            opts: [
+              "Hasty generalization",
+              "False cause",
+              "False dichotomy",
+              "Appeal to authority",
+            ],
+            ans: 2,
+            ex: "False dichotomy presents only two choices when more options clearly exist.",
+          },
+          {
+            q: "According to Daniel Pink, what actually motivates knowledge workers MORE than financial incentives?",
+            opts: [
+              "Job security and salary bonuses",
+              "Lottery-style short-term incentives",
+              "Autonomy, mastery, and purpose",
+              "Competition with colleagues",
+            ],
+            ans: 2,
+            ex: "Pink's Drive: for knowledge work, financial 'carrots' can hurt innovation. True motivation = autonomy, mastery, and purpose.",
+          },
+          {
+            q: "Which action best demonstrates 'being reliable' in building credibility?",
+            opts: [
+              "Quoting a famous CEO who agrees with your idea",
+              "Informing your audience early when a project will cost more than expected",
+              "Using humor to make the audience comfortable",
+              "Showing data from a competitor's success story",
+            ],
+            ans: 1,
+            ex: "Reliability = proactively alerting your audience to problems (cost overruns, delays) rather than hiding them.",
+          },
+          {
+            q: "'Sales went up the month after we hired the new manager, so the manager caused the increase.' This is:",
+            opts: [
+              "Weak analogy",
+              "False cause",
+              "Hasty generalization",
+              "Appeal to popularity",
+            ],
+            ans: 1,
+            ex: "False cause (post hoc): because one event followed another doesn't mean the first caused the second.",
+          },
+          {
+            q: "Regarding the Korean communication study, which statement is accurate?",
+            opts: [
+              "Korean speakers prefer direct commands like 'Do this.'",
+              "Korean speakers find direct statements LEAST effective; clearer requests may be less effective.",
+              "Both American and Korean speakers equally prefer direct statements.",
+              "Korean speakers prefer written over verbal communication.",
+            ],
+            ans: 1,
+            ex: "In Korean culture, the clearer and more direct a request is, the less effective it may actually be — directness can disrupt social harmony.",
+          },
+          {
+            q: "Which is an example of an 'Appeal to Authority' fallacy?",
+            opts: [
+              "Citing a cardiologist's research for a heart surgery decision",
+              "Quoting a famous basketball player to argue that new database software is superior",
+              "Presenting customer satisfaction surveys to back a product launch",
+              "Referring to an industry report on market trends",
+            ],
+            ans: 1,
+            ex: "Appeal to Authority = using a celebrity as an expert in a field they have NO expertise in.",
+          },
+          {
+            q: "The Belgian newspaper De Tijd increased brochure sales by 24% using:",
+            opts: [
+              "A false dichotomy in its headline",
+              "An emotional appeal through a letter from an 84-year-old named Cyriel",
+              "A hasty generalization about reader demographics",
+              "An appeal to popularity citing subscriber numbers",
+            ],
+            ans: 1,
+            ex: "De Tijd won an award for its emotional campaign — a personal letter from an elderly reader named Cyriel.",
+          },
+          {
+            q: "Paul Butler's St. Lucia Parrot campaign grew the population from:",
+            opts: [
+              "50 to 300 birds",
+              "100 to 600–700 birds",
+              "200 to 1,000 birds",
+              "300 to 500 birds",
+            ],
+            ans: 1,
+            ex: "With puppet shows, T-shirts, bumper stickers, costumes in schools, and phone cards, the population grew from 100 to 600–700 birds.",
+          },
+          {
+            q: "The Barbara Minto 'Pyramid Principle' says a persuasive message should:",
+            opts: [
+              "Build gradually, saving the conclusion for the end",
+              "State the conclusion/recommendation first, then supporting arguments, then data",
+              "Start with emotional appeal, then add logic afterward",
+              "Begin with history and context before presenting recommendations",
+            ],
+            ans: 1,
+            ex: "Executives read top-down. State the conclusion FIRST, then support it with arguments and data.",
+          },
+          {
+            q: "What is 'psychological reactance' in the context of persuasion?",
+            opts: [
+              "The audience's tendency to accept all persuasive messages",
+              "The natural pushback people feel when their autonomy is threatened by a directive",
+              "A logical fallacy where two facts are incorrectly linked",
+              "The process of drawing conclusions from limited evidence",
+            ],
+            ans: 1,
+            ex: "When people feel commanded ('You MUST do this'), they naturally resist. Skilled persuaders offer choices and use collaborative framing.",
+          },
+          {
+            q: "Jonah Lehrer's 'How We Decide' supports which persuasion principle?",
+            opts: [
+              "Pure logic always leads to best decisions",
+              "People make better decisions about large purchases when they follow their emotions",
+              "Financial incentives are the most reliable motivators",
+              "Cultural background has no effect on persuasive effectiveness",
+            ],
+            ans: 1,
+            ex: "Lehrer showed people make better decisions about large purchases by following emotions. 'Reason without emotion is impotent.'",
+          },
+          {
+            q: "Why do utility companies show customers how their energy use compares to neighbors'?",
+            opts: [
+              "To embarrass high users into conserving",
+              "Because community perception and social comparison are more motivating than abstract saving statistics",
+              "To comply with government regulations on billing transparency",
+              "To use the false dichotomy fallacy effectively",
+            ],
+            ans: 1,
+            ex: "People are motivated by community perceptions — seeing that they use more than neighbors is a powerful, predictable motivator (behavioral economics).",
+          },
+        ],
+        [
+          {
+            q: "According to Paul Barrs, what is the MOST IMPORTANT section of a product review?",
+            opts: [
+              "The title and reviewer qualifications",
+              "The summary of the sales page promises",
+              "The personal assessment of whether the product delivers on its promises",
+              "The 'Good, the Bad, the Ugly' closing paragraph",
+            ],
+            ans: 2,
+            ex: "Barrs explicitly labels section 6 — 'Does it deliver on its promises?' — as the most important part.",
+          },
+          {
+            q: "Why does Paul Barrs recommend occasionally reviewing 'dime-store' (budget) products?",
+            opts: [
+              "To fill up review pages and improve SEO",
+              "So readers know the reviewer is not just trying to profit from them",
+              "Because cheaper products always deliver on their promises",
+              "To avoid having to use expensive affiliate programs",
+            ],
+            ans: 1,
+            ex: "Mixing in lower-priced products signals you are genuinely trying to help readers, not just chasing high commissions.",
+          },
+          {
+            q: "'If you follow the 4-week plan, you WILL see results in exactly one month.' What problem does this create?",
+            opts: [
+              "Makes the review too short.",
+              "May trigger buyer's remorse if results vary, leading to refunds and chargebacks.",
+              "Is grammatically incorrect.",
+              "Gives away the product's trade secrets.",
+            ],
+            ans: 1,
+            ex: "Results are highly subjective. Guaranteed promises cause buyer's remorse when individual results differ.",
+          },
+          {
+            q: "How should you handle a 'hinky' (ugly/long) affiliate link?",
+            opts: [
+              "Delete it entirely",
+              "Use HTML to mask it professionally OR be transparent and label it as an affiliate link",
+              "Only use products without affiliate programs",
+              "Redirect it through social media",
+            ],
+            ans: 1,
+            ex: "Both masking professionally with HTML or being transparent ('here is my affiliate link') are acceptable. Key principle: honesty sells.",
+          },
+          {
+            q: "What does the 'insider look' (screen captures/video) achieve in a product review?",
+            opts: [
+              "It makes the page load faster",
+              "It allows the reader to see the product before purchasing, building trust",
+              "It is required by article directories",
+              "It prevents the reviewer from being sued",
+            ],
+            ans: 1,
+            ex: "Showing the reader the actual product lets them 'open the box' virtually before committing — the ultimate persuasion tool.",
+          },
+          {
+            q: "According to Web Pro News, what percentage of consumers say reviews influence their purchasing decisions?",
+            opts: ["70%", "75%", "83%", "90%"],
+            ans: 2,
+            ex: "83% of consumers say reviews influence their purchasing decisions. 70% actively seek reviews. Nearly 9 in 10 read them at least 'some of the time.'",
+          },
+          {
+            q: "What is the purpose of using parenthesis (brackets) in a GCSE review?",
+            opts: [
+              "To cite external sources",
+              "To add extra opinions and clarify a viewpoint",
+              "To highlight the cost of the product",
+              "To separate factual claims from opinions",
+            ],
+            ans: 1,
+            ex: "Parenthesis — extra information in brackets — is a top tip for adding personal opinions and a clear viewpoint.",
+          },
+          {
+            q: "A good GCSE review conclusion should:",
+            opts: [
+              "Restate the opening paragraph word for word",
+              "Sum up your views and include an overall recommendation or rating",
+              "List all the weaknesses",
+              "Ask the reader to contact you for more information",
+            ],
+            ans: 1,
+            ex: "The conclusion must bring together all your views into a final overall recommendation.",
+          },
+          {
+            q: "Which is classified as a 'negative descriptor' in the GCSE review vocabulary guide?",
+            opts: ["Vivid", "Captivating", "Lackluster", "Inventive"],
+            ans: 2,
+            ex: "Lackluster is a negative descriptor. Vivid, captivating, and inventive are all positive descriptors.",
+          },
+          {
+            q: "'This product is incredible — it will change your life, cure your problems, and make you rich!' What rule does this violate?",
+            opts: [
+              "The rule about keeping the title short",
+              "The core rule of honesty and not exaggerating",
+              "The rule about using bullet points for promises",
+              "The rule about including an affiliate link",
+            ],
+            ans: 1,
+            ex: "Exaggeration violates the fundamental principle of honesty. Over-promising causes buyer's remorse and destroys trust.",
+          },
+          {
+            q: "Over 80% of visitors to a sales page won't read most of it. What does this suggest for Step 5 of the review template?",
+            opts: [
+              "Copy the entire sales page into your review",
+              "Summarize the sales copy's promises in 3–4 bullet points",
+              "Ignore the sales page and form your own opinion",
+              "Link to the sales page and ask readers to visit it themselves",
+            ],
+            ans: 1,
+            ex: "Because 80%+ won't read the full sales page, distill its promises into 3–4 bullet points. This itself builds your credibility.",
+          },
+          {
+            q: "What is the key principle of the domain/SEO strategy recommended for product review sites?",
+            opts: [
+              "Always use the .com domain for authority",
+              "Grab .net or .org with the product name if .com is taken, or use 'XYZReviewed.com'",
+              "Avoid using the product name in the URL to prevent legal issues",
+              "Use a completely unrelated domain name for anonymity",
+            ],
+            ans: 1,
+            ex: "If .com is taken, grab .net or .org. Alternatively, use 'XYZReviewed.com' or 'XYZProductReviews.com'. For long-term growth, build a niche readership site.",
+          },
+        ],
+        [
+          {
+            q: "In a standard Block Style letter, how are paragraphs formatted?",
+            opts: [
+              "The first line is indented 0.5 inches.",
+              "All lines are centered on the page.",
+              "All lines start flush with the left margin, and paragraphs are not indented.",
+              "Paragraphs are indented only if a subject line is used.",
+            ],
+            ans: 2,
+            ex: "Block style: all lines start at the left margin. Do not indent paragraphs.",
+          },
+          {
+            q: "When using a 1-inch top margin, how many lines down should you type the Dateline?",
+            opts: [
+              "1 to 2 lines",
+              "3 to 4 lines",
+              "6 to 9 lines",
+              "12 to 14 lines",
+            ],
+            ans: 2,
+            ex: "'Space down 6 to 9 lines to type the date since most software programs give a 1-inch top margin.'",
+          },
+          {
+            q: "What is the standard spacing BETWEEN separate paragraphs in the body?",
+            opts: [
+              "Single-space",
+              "Double-space",
+              "Triple-space",
+              "Quadruple-space",
+            ],
+            ans: 1,
+            ex: "Double-space between paragraphs, but single-space within the body of each paragraph.",
+          },
+          {
+            q: "How many lines do you space down from the Complimentary Closing to the Writer's Name?",
+            opts: ["1 line", "2 lines", "4 lines", "6 lines"],
+            ans: 2,
+            ex: "'Space down 4 lines from the closing to the writer's name so that the writer has space to sign the letter.'",
+          },
+          {
+            q: "Where should Reference Initials be placed when the typist is not the writer?",
+            opts: [
+              "Single-spaced directly beneath the dateline",
+              "Double-spaced below the writer's name or title",
+              "Double-spaced immediately below the salutation",
+              "At the very top left corner of the letterhead",
+            ],
+            ans: 1,
+            ex: "Reference initials go a double space below the writer's name/title — and only when the typist is NOT the writer.",
+          },
+          {
+            q: "What is the preferred modern placement for an optional Attention Line?",
+            opts: [
+              "The first line of the inside address",
+              "A double space below the inside address",
+              "Centered directly above the dateline",
+              "On the second page heading",
+            ],
+            ans: 0,
+            ex: "'The preferred method today is to place the attention line as the first line of the inside address.'",
+          },
+          {
+            q: "What punctuation mark follows the Salutation when using standard (mixed) punctuation?",
+            opts: ["A comma", "A semicolon", "A colon", "A period"],
+            ans: 2,
+            ex: "'For business correspondence, salutations are always followed by a colon.'",
+          },
+          {
+            q: "Which phrase can be used in place of 'Subject' in legal correspondence?",
+            opts: ["Attention", "In re or Re", "Copy notation", "Enclosure"],
+            ans: 1,
+            ex: "'Use In re or Re in place of Subject if you prefer; these terms are commonly used for legal correspondence.'",
+          },
+          {
+            q: "When typing an optional Company Signature block, how must the company name be formatted?",
+            opts: [
+              "In bold italic letters",
+              "Initial caps only",
+              "In ALL-CAPITAL letters",
+              "Underlined with a double space below",
+            ],
+            ans: 2,
+            ex: "'Type the company name in all-capital letters a double space below the complimentary closing.'",
+          },
+          {
+            q: "What notation should be used if a document is paper-clipped to the letter (not placed inside the envelope loose)?",
+            opts: [
+              "Enclosure notation",
+              "File name notation",
+              "Postscript notation",
+              "Attachment notation",
+            ],
+            ans: 3,
+            ex: "'If you paper clip an item to your letter, use the attachment notation instead of the enclosure notation.'",
+          },
+          {
+            q: "When should you use a 'bcc' (blind copy) notation?",
+            opts: [
+              "When the recipient needs to approve who gets copies",
+              "Only when the addressee should NOT know a copy was sent to a third party",
+              "Whenever more than two people need copies",
+              "As a formal substitute for the regular cc notation",
+            ],
+            ans: 1,
+            ex: "bcc = blind copy. Use it ONLY if the addressee shouldn't know a copy was sent. Otherwise use cc or c.",
+          },
+          {
+            q: "If a letter needs a second page, what must the second-page heading include?",
+            opts: [
+              "Just the page number",
+              "The subject line repeated",
+              "A 3-line heading: Name, Page 2, Date",
+              "The dateline and salutation repeated",
+            ],
+            ans: 2,
+            ex: "Second-page rule: if longer than one page, use a 3-line heading on page 2: Name, Page 2, Date.",
+          },
+          {
+            q: "Where is the Postscript (PS) placed?",
+            opts: [
+              "On the second line below the last notation typed",
+              "Directly after the complimentary closing",
+              "As the first line of the letter for emphasis",
+              "Anywhere in the body where additional information is needed",
+            ],
+            ans: 0,
+            ex: "The postscript starts on the second line below the copy notation (or whatever notation was typed last).",
+          },
+          {
+            q: "For a very SHORT letter, how should the dateline placement be adjusted?",
+            opts: [
+              "Move it higher, above the letterhead",
+              "Start the date a line or two lower on the page to maintain visual balance",
+              "Center it horizontally",
+              "Skip the dateline entirely",
+            ],
+            ans: 1,
+            ex: "For very short letters, start the date a line or two lower on the page to keep the letter looking balanced and vertically centered.",
+          },
+          {
+            q: "In the Inside Address, how should specific and general information be ordered?",
+            opts: [
+              "General information first (company before person's name)",
+              "Specific information first (person's name before company)",
+              "In alphabetical order",
+              "Based on the writer's preference",
+            ],
+            ans: 1,
+            ex: "Specific info (person's name) goes FIRST; general info (company, street, city) goes last in the inside address.",
+          },
+        ],
+        [
+          {
+            q: "What is the core objective of negotiation according to the textbook?",
+            opts: [
+              "To win and prove the other side wrong",
+              "To meet as many interests as possible, concluding a mutually beneficial agreement",
+              "To ensure the strongest party gets what they want",
+              "To avoid conflict by giving in",
+            ],
+            ans: 1,
+            ex: "Negotiation's core objective is to meet as many interests as possible and conclude an agreement with mutual benefits for all involved.",
+          },
+          {
+            q: "Which best describes a 'Win-Win' negotiation outcome?",
+            opts: [
+              "One party gains all objectives at the expense of the other",
+              "Both parties fail entirely to get what they want",
+              "Both parties walk away with their primary objectives met",
+              "One party yields entirely to avoid conflict",
+            ],
+            ans: 2,
+            ex: "Win-Win = both parties' primary objectives are satisfied. Preserves quality, morale, and professional relationships.",
+          },
+          {
+            q: "BATNA stands for:",
+            opts: [
+              "Best Agreement Through Negotiation and Arbitration",
+              "Best Alternative to a Negotiated Agreement",
+              "Both Alternatives to Negotiation and Argument",
+              "Balanced Approach to Negotiating Any Agreement",
+            ],
+            ans: 1,
+            ex: "BATNA = Best Alternative to a Negotiated Agreement. It is your ideal fallback position if negotiations fail.",
+          },
+          {
+            q: "A client demands extra features without extending the deadline. The developer silently accepts. Which outcome is this?",
+            opts: ["Win-Win", "Win-Lose", "Lose-Lose", "Collaborative"],
+            ans: 1,
+            ex: "The client 'wins' short-term by getting features, but the developer 'loses' via stress and compromised code quality. This is Win-Lose.",
+          },
+          {
+            q: "What is the correct order of the 4-Step Negotiation Process?",
+            opts: [
+              "Prepare → Analyze → Negotiate → Check",
+              "Problem Analysis → Preparation → Negotiate → Check",
+              "Negotiate → Analyze → Prepare → Confirm",
+              "Identify → Discuss → Compromise → Agree",
+            ],
+            ans: 1,
+            ex: "The 4 steps are: (1) Problem Analysis, (2) Preparation, (3) Negotiate, (4) Check.",
+          },
+          {
+            q: "What is 'Interest-Based Negotiation'?",
+            opts: [
+              "Focusing on rigid demands until one side concedes",
+              "Looking at the underlying needs behind demands to find mutually satisfying solutions",
+              "Using financial incentives to motivate the other party",
+              "Negotiating only when both parties have financial interests at stake",
+            ],
+            ans: 1,
+            ex: "Instead of arguing over fixed positions ('I want Postgres!'), examine WHY (data scalability? relational integrity?) and find a solution meeting both underlying needs.",
+          },
+          {
+            q: "The Avoidance/Withdrawal strategy should NEVER be used for:",
+            opts: [
+              "Situations where emotions are running high",
+              "Minor, low-stakes disagreements",
+              "Critical architectural or project decisions",
+              "One-time interactions with no ongoing relationship",
+            ],
+            ans: 2,
+            ex: "Avoidance can let emotions cool for minor issues, but should never be used for critical decisions — it inevitably results in Lose-Lose.",
+          },
+          {
+            q: "Which statement about 'Win-Lose' negotiation is accurate?",
+            opts: [
+              "It is the ideal outcome in all long-term professional relationships",
+              "It is used cautiously in rare situations like one-time contracts",
+              "It consistently produces the highest quality project outcomes",
+              "It is equivalent to a Compromise strategy",
+            ],
+            ans: 1,
+            ex: "Win-Lose is used only in rare, short-term situations like one-time contracts where ongoing relationships are not a concern.",
+          },
+          {
+            q: "What is 'Lose-Lose' the result of?",
+            opts: [
+              "Both parties agreeing to a compromise that neither fully wants",
+              "Emotional stubbornness or a complete breakdown in communication",
+              "A well-prepared negotiation where both sides stick to their BATNA",
+              "A deliberate strategy to restart negotiations",
+            ],
+            ans: 1,
+            ex: "Lose-Lose is the ultimate failure state — triggered by stubborn communication breakdowns where both parties refuse to collaborate.",
+          },
+          {
+            q: "Which of the following is an example of 'Ethical Negotiation'?",
+            opts: [
+              "Exaggerating your skills to secure a higher salary",
+              "Communicating risks honestly and avoiding unrealistic commitments",
+              "Using the false dichotomy fallacy to pressure the other side",
+              "Concealing your WATNA to appear more confident",
+            ],
+            ans: 1,
+            ex: "Ethical negotiation: communicate risks honestly, don't exaggerate skills, avoid unrealistic commitments, and honor all agreements.",
+          },
+          {
+            q: "How is organizational culture primarily transmitted according to the text?",
+            opts: [
+              "Through formal written manuals and policy documents",
+              "Through imitation and observation of role models",
+              "Through mandatory training programs",
+              "Through performance reviews and annual goal-setting",
+            ],
+            ans: 1,
+            ex: "Organizational culture is NOT written down — it is learned through imitation and observation. Role models and advice are key transmission channels.",
+          },
+          {
+            q: "WATNA stands for:",
+            opts: [
+              "Win-or-Accept Trade Negotiation Agreement",
+              "Worst Alternative to a Negotiated Agreement",
+              "Workplace Agreement for Two Negotiating Actors",
+              "Worst Approach to Negotiating Any Arrangement",
+            ],
+            ans: 1,
+            ex: "WATNA = Worst Alternative to a Negotiated Agreement. The worst-case scenario if no agreement is reached.",
+          },
+          {
+            q: "Two teammates argue over which database to use without examining WHY each prefers it. What should they do?",
+            opts: [
+              "Use the avoidance strategy and table the discussion",
+              "Flip a coin to avoid further conflict",
+              "Apply interest-based negotiation to examine the underlying technical needs behind each preference",
+              "Appeal to a manager as the authority figure",
+            ],
+            ans: 2,
+            ex: "Interest-based negotiation = move from 'I want X' to 'why do I want X?' — examine underlying needs to find a solution that satisfies both.",
+          },
+          {
+            q: "The 'Compromise' strategy is best applied when:",
+            opts: [
+              "The relationship is long-term and stakes are very high",
+              "Time is running out or stakes are relatively low, and both sides can give minor concessions",
+              "One party clearly has more power",
+              "The situation requires one side to take all the risk",
+            ],
+            ans: 1,
+            ex: "Compromise is for low-stakes or time-critical situations — both sides give up minor preferences to move forward quickly.",
+          },
+          {
+            q: "According to the 4-step process, what is the FIRST thing a developer should do before negotiating a deadline extension?",
+            opts: [
+              "Immediately begin negotiating before losing leverage",
+              "Jump straight to listing alternatives",
+              "Analyze the problem — identify the underlying interests of each party, core issues, and desired outcomes",
+              "Check the final agreement before discussing it",
+            ],
+            ans: 2,
+            ex: "Step 1 is Problem Analysis: understand all parties' interests and what the core issues actually are, before any discussion begins.",
+          },
+        ],
+        [
+          {
+            q: "Research cited in the textbook says many interviewers make up their minds about a candidate within:",
+            opts: [
+              "The first 5 minutes",
+              "The first 2 minutes",
+              "The first 20 seconds",
+              "The first 30 seconds",
+            ],
+            ans: 2,
+            ex: "Studies suggest many interviewers make up their minds within the FIRST 20 SECONDS — making the warm-up the most critical stage.",
+          },
+          {
+            q: "What is the PRIMARY objective of the 'Final Stage' (third stage) interview?",
+            opts: [
+              "To conduct technical testing",
+              "Frequently for the company to 'sell' the candidate on the benefits of joining",
+              "To verify educational credentials",
+              "To re-screen candidates who passed the selection stage",
+            ],
+            ans: 1,
+            ex: "The final stage is often by a senior executive and its primary objective is frequently for the COMPANY to SELL the candidate on joining — not just evaluate them.",
+          },
+          {
+            q: "Which interview type requires candidates to describe specific past incidents using Situation → Action → Outcome?",
+            opts: [
+              "Stress Interview",
+              "Working Interview",
+              "Situational Interview",
+              "Behavioral Interview",
+            ],
+            ans: 3,
+            ex: "Behavioral interviews require candidates to describe specific PAST incidents. They are a strong predictor of job success because they avoid canned answers.",
+          },
+          {
+            q: "What is the key difference between Behavioral and Situational interviews?",
+            opts: [
+              "Behavioral is conducted by a panel; situational ones are one-on-one",
+              "Behavioral asks about PAST experiences; Situational asks how you WOULD handle hypothetical scenarios",
+              "Situational interviews involve actual work tasks; behavioral ones are phone-based",
+              "There is no difference — they are the same type of interview",
+            ],
+            ans: 1,
+            ex: "Behavioral = describe a time you DID something (past). Situational = describe what you WOULD do in a hypothetical scenario (future).",
+          },
+          {
+            q: "In a stress interview, an interviewer uses long silences and open criticism. What is the recommended strategy?",
+            opts: [
+              "End the interview immediately",
+              "Match the interviewer's energy by becoming more assertive",
+              "Recognize the tactic, collect your thoughts for a few seconds, and respond calmly",
+              "Ask the interviewer to change their approach",
+            ],
+            ans: 2,
+            ex: "Strategy for stress interviews: recognize it as a deliberate tactic, collect your thoughts briefly, and respond calmly and professionally.",
+          },
+          {
+            q: "Which is identified as the MOST COMMON mistake job candidates make during interviews?",
+            opts: [
+              "Wearing inappropriate attire",
+              "Criticizing past employers",
+              "Answering mobile phones, texting, or chewing gum during the interview",
+              "Asking too many questions about salary",
+            ],
+            ans: 2,
+            ex: "A recent survey of hiring professionals identified answering calls or texting while in an interview as the most common mistake candidates make.",
+          },
+          {
+            q: "A job offer acceptance letter should be sent within how many days of receiving the offer?",
+            opts: ["1 day", "2 days", "5 days", "10 days"],
+            ans: 2,
+            ex: "The letter of acceptance should be sent within 5 days of receiving the job offer. Be certain before sending — it can be a legally binding contract.",
+          },
+          {
+            q: "An interviewer asks: 'Have you ever been arrested?' Is this a legally acceptable question?",
+            opts: [
+              "Yes, criminal history is relevant to employment",
+              "No, interviewers may only ask 'Have you ever been convicted of a felony?' — not about arrests",
+              "Yes, as long as a background check is required",
+              "No, any question about criminal history is prohibited",
+            ],
+            ans: 1,
+            ex: "Interviewers may ask 'Have you ever been convicted of a felony?' but NOT 'Have you ever been arrested?' — these are legally distinct.",
+          },
+          {
+            q: "If 'no calls' is specified in a job posting and no closing date is given, when is it appropriate to follow up?",
+            opts: [
+              "Immediately after applying to show eagerness",
+              "After about one or two weeks if no timeline is specified",
+              "After three months of hearing nothing",
+              "Never — if they want you, they will call",
+            ],
+            ans: 1,
+            ex: "Follow explicit instructions (no calls = no calls). If no timeline is given, waiting a week or two after submission is appropriate.",
+          },
+          {
+            q: "A written acceptance of a job offer can be:",
+            opts: [
+              "A simple courtesy that carries no legal weight",
+              "A legally binding contract for both parties",
+              "Waived if you change your mind within 24 hours",
+              "Binding only for the employer, not the applicant",
+            ],
+            ans: 1,
+            ex: "The text warns: 'Be absolutely certain you want the position before hitting send. A written acceptance of a job offer can constitute a legally binding contract for both you and the employer.'",
+          },
+          {
+            q: "In an application letter, when should you mention salary expectations?",
+            opts: [
+              "Always in the opening paragraph to set expectations immediately",
+              "In the final paragraph unprompted to show market research",
+              "ONLY if explicitly requested by the employer",
+              "Never — salary is discussed only in the interview stage",
+            ],
+            ans: 2,
+            ex: "Salary expectations should ONLY be mentioned if explicitly requested by the employer. If required, use bls.gov and tie the figure to your specific value.",
+          },
+          {
+            q: "The advantage of Email/IM interviews over verbal interviews is:",
+            opts: [
+              "They provide richer nonverbal communication cues",
+              "They give the applicant time to thoroughly review and edit each response before sending",
+              "They eliminate the risk of discriminatory questions",
+              "They create a more personal connection with the interviewer",
+            ],
+            ans: 1,
+            ex: "Email/IM provides the distinct advantage of allowing the applicant time to thoughtfully review and edit each response — impossible in real-time verbal interviews.",
+          },
+          {
+            q: "In a video interview, which is MOST important?",
+            opts: [
+              "Having multiple people in the frame to look collaborative",
+              "Looking directly at the camera, dressing fully, and ensuring a professional background",
+              "Using animated backgrounds to look creative",
+              "Positioning the camera below eye level",
+            ],
+            ans: 1,
+            ex: "For video interviews: dress and groom fully, sit up straight, look directly at the CAMERA, and ensure your background is free of professional distractions or embarrassing items.",
+          },
+          {
+            q: "Which interview question is LEGALLY PERMISSIBLE for an employer to ask?",
+            opts: [
+              "What is your race?",
+              "When did you graduate from high school?",
+              "Can you perform the specific tasks listed in this job description?",
+              "Have you ever been addicted to drugs in the past?",
+            ],
+            ans: 2,
+            ex: "Asking 'Can you perform these specific tasks?' is legal because it directly relates to job capability. Questions about race, graduation year (reveals age), and past addiction are potentially discriminatory.",
+          },
+          {
+            q: "When you receive a job offer but have other pending interviews, which message type do you send?",
+            opts: [
+              "Letter of Acceptance with conditions attached",
+              "Letter Declining the Offer temporarily",
+              "Message of Inquiry asking for the company's decision timeline",
+              "Request for a Time Extension — opening with excitement for the offer, then explaining the need for more time",
+            ],
+            ans: 3,
+            ex: "Request for Time Extension: buffer with excitement for the offer, explain subtly you need more time, and give a specific date by which you will respond.",
+          },
+        ],
+      ];
+      function notes0() {
+        return `
+<div class="section-block"><div class="section-label">The Seven C's — Overview</div>
+<div class="highlight-box">The <strong>Seven C's</strong> are fundamental guidelines for creating effective written and oral messages. They determine both the <strong>content</strong> and <strong>style</strong> of any message, tailored to a specific purpose and audience. They apply to individual sentences, complete documents, and full presentations — unified by a single focus: the audience.</div>
+<div class="definition-grid">${["Completeness", "Conciseness", "Consideration", "Concreteness", "Clarity", "Courtesy", "Correctness"].map((c, i) => `<div class="def-card"><div class="def-term">${String(i + 1).padStart(2, "0")}</div><div class="def-text" style="color:var(--text);font-weight:500">${c}</div></div>`).join("")}</div></div>
+
+<div class="section-block"><div class="section-label">Completeness — Definition & Why It Matters</div>
+<div class="note-box"><div class="note-intro">A message is <strong style="color:var(--accent2)">complete</strong> when it contains all the facts the receiver needs to take the desired action or respond appropriately.</div>
+<ul class="note-list">
+<li><b>Efficiency:</b> Complete messages achieve results without costly follow-up correspondence.</li>
+<li><b>Building Goodwill:</b> Providing all necessary information shows concern for the receiver's needs.</li>
+<li><b>Risk Management:</b> Incomplete messages can lead to costly misunderstandings or even lawsuits.</li>
+<li><b>Effectiveness:</b> Even minor information can be vital for the message to be acted upon.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">3 Core Rules for Completeness</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Rule 1 — Provide all necessary information</b></li>
+<li><b>Rule 2 — Answer all questions asked</b></li>
+<li><b>Rule 3 — Give something extra, when desirable</b></li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Rule 1 — The Five W's + How</div>
+<div class="note-intro" style="color:var(--text2);font-size:14px;margin-bottom:12px">When ordering merchandise: specify <em>what</em> you want, <em>when</em> you need it, <em>who</em> it is for, <em>where</em> to send it, and <em>how</em> payment will be made.</div>
+<div class="five-w-grid">${[
+          ["Who", "Actors & subjects"],
+          ["What", "Core event or topic"],
+          ["When", "Timing & deadlines"],
+          ["Where", "Location & destination"],
+          ["Why", "Purpose & motivation"],
+          ["How", "Method & process"],
+        ]
+          .map(
+            ([w, d]) =>
+              `<div class="w-card"><div class="w-letter">${w}</div><div class="w-word">${d}</div></div>`,
+          )
+          .join("")}</div></div>
+
+<div class="section-block"><div class="section-label">Rule 2 — Answer ALL Questions Asked</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Risk of ignoring questions:</b> The receiver may think you are hiding a weakness, being dishonest, or are unfriendly — losing you business or goodwill.</li>
+<li><b>If you lack the answer:</b> Be honest and tactful. Do not pretend the question was not asked.</li>
+<li><b>If the inquiry is unclear:</b> Provide a form or a list of questions for the inquirer to fill in.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Rule 3 — Give Something Extra</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Rotary Club example:</b> A new member asks for location. Give address <em>plus</em> directions, parking, date, time, and the program.</li>
+<li><b>Travel Fax example:</b> Someone asks for departures from Singapore to Hong Kong. Extra = flight times, airlines, costs, arrival/departure times.</li>
+<li><b>Clarification rule:</b> If the reason for extra info is not obvious, explain why you are providing it.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Source Credibility — 5 Communication Probe Factors</div>
+<div class="table-wrap"><table><thead><tr><th>Factor</th><th>What the audience is deciding</th></tr></thead><tbody>
+<tr><td style="color:var(--accent2);font-weight:500">Competence</td><td>Does the sender know their subject matter?</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Character</td><td>Is the sender perceived as honest?</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Composure</td><td>Is the sender calm and collected, especially under stress?</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Sociability</td><td>Is the sender perceived as a likeable individual?</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Extroversion</td><td>Does the sender show outgoing rather than timid tendencies?</td></tr>
+</tbody></table></div></div>
+
+<div class="section-block"><div class="section-label">Correctness — Three Language Levels</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Formal writing:</b> Unconversational, impersonal tone (official reports, legal documents).</li>
+<li><b>Informal writing:</b> Conversational, uses shorter and well-known words.</li>
+<li><b>Substandard language:</b> Words or phrases unacceptable in professional contexts — e.g., <em>irregardless</em>, <em>should of</em>, <em>could of</em>.</li>
+<li><b>Proofreading rule:</b> If your message contains data, have someone else review it — authors often miss their own errors.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Commonly Confused Words</div>
+<div class="table-wrap"><table><thead><tr><th>Word Pair</th><th>Rule to Remember</th></tr></thead><tbody>
+<tr><td style="color:var(--teal);font-family:var(--font-mono);font-size:12px">principal / principle</td><td><em>Principal</em> = main/head person; <em>Principle</em> = a rule or belief.</td></tr>
+<tr><td style="color:var(--teal);font-family:var(--font-mono);font-size:12px">imply / infer</td><td>The <strong>writer implies</strong>; the <strong>reader infers</strong>.</td></tr>
+<tr><td style="color:var(--teal);font-family:var(--font-mono);font-size:12px">between / among</td><td><em>Between</em> = two items; <em>Among</em> = three or more.</td></tr>
+<tr><td style="color:var(--teal);font-family:var(--font-mono);font-size:12px">effect / affect</td><td><em>Effect</em> (noun) = result; <em>Affect</em> (verb) = to influence.</td></tr>
+<tr><td style="color:var(--teal);font-family:var(--font-mono);font-size:12px">continual / continuous</td><td><em>Continual</em> = recurring with breaks; <em>Continuous</em> = uninterrupted.</td></tr>
+<tr><td style="color:var(--teal);font-family:var(--font-mono);font-size:12px">who / whom</td><td><em>Who</em> = subject; <em>Whom</em> = object. "Who did this?" vs "To whom did you send it?"</td></tr>
+</tbody></table></div></div>
+
+<div class="section-block"><div class="section-label">Clarity — Sentence Length & Dangling Modifiers</div>
+<div class="note-intro" style="color:var(--text2);font-size:14px;margin-bottom:12px">Theodore Bernstein's studies found shorter sentences produced <strong style="color:var(--accent2)">64% comprehension vs 43%</strong> for longer sentences.</div>
+<div class="table-wrap"><table><thead><tr><th>Status</th><th>Example</th></tr></thead><tbody>
+<tr><td style="color:var(--red)">Unclear</td><td>Being an excellent lawyer, I am sure you can help us.</td></tr>
+<tr><td style="color:var(--green)">Clear</td><td>Being an excellent lawyer, you can surely help us.</td></tr>
+<tr><td style="color:var(--red)">Unclear</td><td>His report was about managers, broken down by age and gender.</td></tr>
+<tr><td style="color:var(--green)">Clear</td><td>His report focused on age and gender of managers.</td></tr>
+<tr><td style="color:var(--red)">Unclear</td><td>After planting 10,000 berry plants, the deer came into our botanist's farm.</td></tr>
+<tr><td style="color:var(--green)">Clear</td><td>After our botanist had planted 10,000 berry plants, the deer came into his farm.</td></tr>
+</tbody></table></div></div>
+`;
+      }
+      function notes1() {
+        return `
+<div class="section-block"><div class="section-label">What is Persuasion?</div>
+<div class="highlight-box">Persuasion is <strong>almost universal in business communications</strong>. Even giving people information is a form of persuasion. Effective persuasion rests on three pillars: <strong>accurate logic</strong>, <strong>effective emotional appeal</strong>, and <strong>credibility/trust</strong>.</div>
+<div class="note-box"><div class="note-intro"><strong style="color:var(--accent2)">Purposes of persuasive messages:</strong></div>
+<ul class="note-list">
+<li><b>Primary:</b> To have the audience act or change beliefs.</li>
+<li><b>Secondary — Build communicator's image:</b> Leave a positive impression of you.</li>
+<li><b>Secondary — Build organizational image:</b> Represent your organization well.</li>
+<li><b>Secondary — Cement relationships:</b> Strengthen the bond between communicator and audience.</li>
+<li><b>Secondary — Overcome objections:</b> Address anything preventing or delaying action.</li>
+<li><b>Secondary — Reduce future communication:</b> A complete persuasive message should not generate more work for you.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Aristotle's Rhetorical Triangle — Ethos, Logos, Pathos</div>
+<div class="teal-box"><strong>Every effective persuasive message must balance all three pillars of Aristotle's rhetoric.</strong></div>
+<div class="three-col">
+<div class="def-card" style="border-top:2px solid var(--accent2)">
+<div class="def-term" style="color:var(--accent2)">Ethos — Credibility</div>
+<div class="def-text" style="color:var(--text)"><strong>Why should the audience trust you?</strong> Built through expertise, track record, integrity, and empathy. Example: A CTO who spent her first month shadowing engineers to understand their struggles before presenting a new system establishes both competence AND shared experience.</div>
+</div>
+<div class="def-card" style="border-top:2px solid var(--teal)">
+<div class="def-term" style="color:var(--teal)">Logos — Logic & Evidence</div>
+<div class="def-text" style="color:var(--text)"><strong>Is your argument rational and well-supported?</strong> Uses objective data, statistics, case studies, and logical structure. Example: "The new platform will reduce server downtime by 40% and scale deployment speeds by 3×."</div>
+</div>
+<div class="def-card" style="border-top:2px solid var(--amber)">
+<div class="def-term" style="color:var(--amber)">Pathos — Emotional Connection</div>
+<div class="def-text" style="color:var(--text)"><strong>Does it connect to values, fears, and hopes?</strong> Addresses the emotional well-being and human drivers of the audience. Example: Acknowledging engineer burnout and framing the change as "this will give everyone their weekends back."</div>
+</div>
+</div>
+<div class="amber-box"><strong>Key insight:</strong> "Reason without emotion is impotent." — Jonah Lehrer, <em>How We Decide</em>. "Feelings often trump thinking." — Kotter &amp; Rathgeber, <em>Our Iceberg Is Melting</em>. People make better decisions about large purchases when they follow their emotions.</div></div>
+
+<div class="section-block"><div class="section-label">5 Questions for Analyzing Persuasive Situations</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Q1 — What do you want people to do?</b> Identify the specific action and the person with the power to do it. Specify what you want them to do NOW.</li>
+<li><b>Q2 — What objections will the audience have?</b> If asking for little time/money/effort, few objections. If more is required, people have other priorities. Easiest way to learn about objections: ASK.</li>
+<li><b>Q3 — How strong is your case?</b> Strength is based on: argument, credibility, and emotional appeal.</li>
+<li><b>Q4 — What kind of persuasion fits the situation?</b> People are motivated by factors beyond money — including competition and community perceptions.</li>
+<li><b>Q5 — What kind of persuasion fits the organization and culture?</b> Organizational culture is not written down — learned through imitation and observation.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Monroe's Motivated Sequence — 5 Steps</div>
+<div class="highlight-box"><strong>Monroe's Motivated Sequence</strong> is a 5-step framework for driving immediate behavioral change:</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Step 1 — Attention:</b> Start with a shocking statistic, a poignant question, or a compelling story.</li>
+<li><b>Step 2 — Need:</b> Demonstrate that the current state is unsustainable. Create urgency.</li>
+<li><b>Step 3 — Satisfaction:</b> Present your clear, practical solution or proposal.</li>
+<li><b>Step 4 — Visualization:</b> Paint a vivid picture of positive outcomes if plan succeeds vs. negative outcomes if no action is taken.</li>
+<li><b>Step 5 — Action:</b> Give the audience an immediate, explicit, and achievable next step.</li>
+</ul></div>
+<div class="teal-box"><strong>Real example (non-profit director):</strong> "Last night, 200 families slept without heat." [Attention] → "Our utility fund is depleted — raise $10,000 by Friday or we close." [Need] → "We have a digital donation drive Tuesday night." [Satisfaction] → "Imagine warm children learning vs. left in the cold." [Visualization] → "Open the link on your phone and sign up now." [Action]</div></div>
+
+<div class="section-block"><div class="section-label">The Pyramid Principle (Barbara Minto)</div>
+<div class="note-box"><div class="note-intro">Executives read top-down. State the <strong>conclusion first</strong>, then supporting arguments, then data.</div>
+<ul class="note-list">
+<li><b>Wrong:</b> Spend 20 minutes on the history of manufacturing challenges before revealing the new product idea.</li>
+<li><b>Right:</b> "We need to divest from retail immediately. This saves $5M annually, protects capital, and lets us focus on e-commerce." Then support each pillar.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Credibility — Three Sources</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Expertise:</b> Your knowledge in the field. Citing experts can make your argument more credible.</li>
+<li><b>Image:</b> How others perceive you. Workers build credibility by being assigned to high-profile teams.</li>
+<li><b>Relationships:</b> Familiarity and trust. Even relationships built on outside interests (sports, children) make it easier for others to trust you.</li>
+</ul></div>
+<div class="note-box"><div class="note-intro"><strong style="color:var(--accent2)">3 Rules for building credibility when you lack expert status:</strong></div>
+<ul class="note-list">
+<li><b>Be factual:</b> Do not exaggerate. Report test results — facts about a test are more convincing than opinions about an idea.</li>
+<li><b>Be specific:</b> If you say "X is better," show in detail exactly how it is better. Show where savings come from.</li>
+<li><b>Be reliable:</b> If a project will take longer or cost more than planned, tell your audience immediately and negotiate a new schedule you can actually meet.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Psychological Reactance</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Definition:</b> When people feel their autonomy is threatened by a directive ("You MUST do this"), they naturally push back.</li>
+<li><b>Pivot example:</b> Instead of "Company policy says you must log hours here," say: "I know you hate overhead. My goal is to stop clients from interrupting your workflow. Let's try this for two weeks and re-evaluate."</li>
+<li><b>Active listening technique:</b> Mirror thoughts and validate emotions behind resistance. "It sounds like you're worried rushing this will compromise the quality you worked so hard to build. Is that accurate?"</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">7 Logical Fallacies</div>
+<div class="fallacy-grid">
+${[
+  [
+    "Hasty Generalization",
+    "Drawing a conclusion from too little or too small a sample of evidence.",
+  ],
+  [
+    "False Cause",
+    "Assuming B happened BECAUSE of A, simply because B followed A (post hoc ergo propter hoc).",
+  ],
+  [
+    "Weak Analogy",
+    "Making a comparison between two things that do not actually hold up under scrutiny.",
+  ],
+  [
+    "Appeal to Authority",
+    "Quoting a famous person who is NOT actually an expert in the relevant field.",
+  ],
+  [
+    "Appeal to Popularity",
+    "Because many people believe something, it must be true. E.g., 'Thousands doubt climate change, so it must not be happening.'",
+  ],
+  [
+    "Appeal to Ignorance",
+    "Using a lack of evidence to support a conclusion. E.g., 'All monitors are in the safety zone, so nothing is wrong.'",
+  ],
+  [
+    "False Dichotomy",
+    "Setting up only two choices when more exist. E.g., 'If you are not with us, you are against us.'",
+  ],
+]
+  .map(
+    ([n, d]) =>
+      `<div class="fallacy-card"><div class="fallacy-name">${n}</div><div class="fallacy-desc">${d}</div></div>`,
+  )
+  .join("")}
+</div></div>
+
+<div class="section-block"><div class="section-label">Behavioural Economics & Daniel Pink's Drive</div>
+<div class="note-box"><ul class="note-list">
+<li>People often behave <strong>irrationally, though still predictably</strong>, not always in their own best interests.</li>
+<li>Utility companies: people conserve more when comparing their usage to neighbors' — <b>community perception matters</b>.</li>
+<li>Lotteries work because people give more weight to a small chance of winning than the much larger probability of long-term health improvement.</li>
+<li>Weight-loss programs put $1–$2/day into escrow; those who meet goals get money back plus matching funds.</li>
+</ul></div>
+<div class="highlight-box"><strong>Daniel Pink's Drive — Three Intrinsic Motivators for Knowledge Workers:</strong>
+<ul style="margin-top:8px;padding-left:1.2rem">
+<li style="margin-bottom:4px"><strong>Autonomy</strong> — deep-seated desire to direct our own lives</li>
+<li style="margin-bottom:4px"><strong>Mastery</strong> — desire to expand our abilities</li>
+<li><strong>Purpose</strong> — desire to contribute to something bigger than ourselves</li>
+</ul>
+Financial "carrot" incentives can <em>decrease</em> innovation. "Stick" motivators (ill-chosen goals) can lead to unethical behavior.</div></div>
+
+<div class="section-block"><div class="section-label">Cultural Differences & Case Studies</div>
+<div class="note-box"><ul class="note-list">
+<li><b>American English speakers:</b> Judge direct statements ("Do this") as clearer and more effective.</li>
+<li><b>Korean speakers:</b> Judge direct statements as LEAST effective — directness can disrupt social harmony.</li>
+<li><b>De Tijd (Belgian newspaper):</b> Emotional letter from an 84-year-old named <strong>Cyriel</strong> increased brochure sales by <strong>24%</strong> and won an award.</li>
+<li><b>Charity: water:</b> Transparency (all new donor money goes to water), Google Earth tracking, social media — raised over a million dollars.</li>
+<li><b>Men's Health (AHRQ):</b> Agency for Healthcare Research and Quality used humor with dark undertones to persuade men to seek health care.</li>
+<li><b>St. Lucia Parrot (Paul Butler):</b> Only 100 birds remained. Used puppet shows, T-shirts, bumper stickers, parrot costumes, and phone calling cards. Population grew from <strong>100 to 600–700 birds</strong>.</li>
+</ul></div></div>
+`;
+      }
+      function notes2() {
+        return `
+<div class="section-block"><div class="section-label">Core Philosophy — The Non-Negotiables</div>
+<div class="highlight-box">Two golden rules: <strong>(1) Pick a good product</strong> — do not review low-quality items just for commission. <strong>(2) Be honest</strong> — authenticity builds trust; dishonesty causes buyer's remorse, chargebacks, and refunds. You must have <strong>actually used</strong> the product before reviewing it.</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Diversification:</b> Include some "dime-store" (budget) products so readers know you are not just trying to profit from them.</li>
+<li><b>Buyer's remorse:</b> Occurs when someone buys something and quickly regrets it — usually due to misleading information. Leads to chargebacks and refund requests.</li>
+<li><b>Web Pro News stats:</b> 83% of consumers say reviews influence their online purchasing decisions. 70% of online shoppers actively seek out reviews. Nearly 9 in 10 US online buyers read reviews at least "some of the time."</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">The 11-Step Review Template (Paul Barrs)</div>
+<div class="note-box"><ul class="note-list">
+<li><b>1. Know the target reader</b> — Understand your readership before writing. Research the market if entering a new niche.</li>
+<li><b>2. Title</b> — Format: <em>"Product Name: Product Review by [your qualifications]."</em> Qualifications help readers identify with you. Aids SEO and article directories.</li>
+<li><b>3. Product Specifics</b> — Name of product + URL link.</li>
+<li><b>4. Type of product</b> — Is it a video, eBook, physical item, software? If affiliate link is "hinky" (ugly/long), use HTML to mask it OR be transparent: label it as your affiliate link. Honesty sells.</li>
+<li><b>5. What does the sales copy promise?</b> — Over 80% of visitors to a sales page will not read most of it. Summarize the promises in <em>3–4 bullet points</em>. This builds your credibility.</li>
+<li><b>6. Does it deliver? [MOST IMPORTANT SECTION]</b> — Do not exaggerate. Give reasons, examples, draw from personal experience. Limit to 3 paragraphs.</li>
+<li><b>7. Cost &amp; payment</b> — State total investment, hidden or ongoing costs, and how payment is made. Keep to one or two lines.</li>
+<li><b>8. How easy is it to use?</b> — Discuss the interface, language, format. Easy to navigate?</li>
+<li><b>9. How easy is it to learn?</b> — For video courses: Is the speaker clear? Is the information applicable in real life?</li>
+<li><b>10. How long to get results?</b> — Highly subjective. Be honest that individual results vary. Avoid generic promises. Acknowledge risk of buyer's remorse.</li>
+<li><b>11. The Good, the Bad, the Ugly (Summary)</b> — State what you loved, liked, and genuinely did not like. Be honest at all times.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Insider Look — Video & Screenshots</div>
+<div class="teal-box">The <strong>ultimate persuasion tool</strong>: show the reader what they are buying <em>before</em> they buy it. Digital products: screen captures or live video. Physical products: unboxing video showing genuine excitement or disappointment.</div></div>
+
+<div class="section-block"><div class="section-label">Writing Style & Tone Rules</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Keep it simple:</b> Be clear, real, and state things as they are. No need to "look good."</li>
+<li><b>Show personality:</b> Being "real" builds a loyal readership.</li>
+<li><b>Be original:</b> Do not copy someone else's review.</li>
+<li><b>Not too much flair:</b> Avoid a "sales message" tone. Inform with a logical, balanced argument, not a pitch.</li>
+<li><b>Readers sense greed:</b> People can tell when someone is chasing a commission rather than giving a genuine review.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Domain & SEO Strategy</div>
+<div class="note-box"><ul class="note-list">
+<li>If .com is taken, grab .net or .org with the product name.</li>
+<li>Try "XYZReviewed.com" or "XYZProductReviews.com" as alternatives.</li>
+<li>For long-term growth, pick a niche name (e.g., "MembershipSiteReviews.com").</li>
+<li>Look for opportunities around new or "pre-launch" products — readers are eager for reviews of things just released.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">GCSE Review Structure</div>
+<div class="highlight-box">A review is an <strong>evaluation of a given topic</strong>. You must provide a range of <strong>personal opinions</strong> supported by evidence, details, and reasons. You are tested on: engagement with the reader, evaluative ability, and effective use of sentence structure, grammar, and vocabulary.</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Step 1 — Title:</b> Use something interesting or catchy (not just the product name).</li>
+<li><b>Step 2 — Opening paragraph:</b> Introduce the topic and your general opinion in a focused, engaging way.</li>
+<li><b>Step 3 — 2–3 main paragraphs:</b> Include strengths AND weaknesses with specific details to make the review credible and interesting.</li>
+<li><b>Step 4 — Conclusion:</b> Sum up your views and include an overall recommendation or rating.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">GCSE Top Tips & Vocabulary</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Stay focused</b> — constantly weigh up the thing you are reviewing throughout.</li>
+<li><b>Use parenthesis</b> — extra information in brackets adds opinions and a clear viewpoint.</li>
+<li><b>Think about tone</b> — confide in the reader so they trust you.</li>
+<li><b>Ask rhetorical questions</b> — and make the answer seem like the only logical option.</li>
+<li><b>Give plenty of reasons</b> — support every opinion with evidence or explanation.</li>
+</ul></div>
+<div class="word-grid">
+<div class="word-card positive"><div class="word-card-title">Positive Descriptors</div>
+<div class="word-list">${["interesting", "vivid", "engaging", "colourful", "imaginative", "captivating", "mesmeric", "fascinating", "remarkable", "inventive"].map((w) => `<span class="word-tag">${w}</span>`).join("")}</div></div>
+<div class="word-card negative"><div class="word-card-title">Negative Descriptors</div>
+<div class="word-list">${["dull", "bland", "dreary", "tedious", "uninspiring", "lackluster", "tired", "superficial", "awkward", "uncomfortable", "embarrassing", "painful"].map((w) => `<span class="word-tag">${w}</span>`).join("")}</div></div>
+</div></div>
+`;
+      }
+      function notes3() {
+        return `
+<div class="section-block"><div class="section-label">Core Rules of Block Letter Format</div>
+<div class="highlight-box"><strong>Block Style = Everything flush left.</strong> All lines start exactly at the left margin. No paragraph indentations. The letter should appear <strong>vertically centered</strong> on the page with approximately equal top and bottom margins.</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Left-Aligned:</b> ALL lines start at the left margin — date, salutation, body, closing, writer's name.</li>
+<li><b>No Indentations:</b> Do not indent paragraphs.</li>
+<li><b>Side Margins:</b> Most software provides standard 1-inch side margins — do not adjust for medium or long letters.</li>
+<li><b>Short Letters:</b> For very short letters, start the date a line or two lower to maintain visual balance.</li>
+<li><b>Within paragraphs:</b> Single-spaced.</li>
+<li><b>Between paragraphs:</b> Double-spaced (leave 1 blank line).</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">All 17 Elements — Type & Exact Spacing</div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Element</th><th>Required?</th><th>Exact Spacing Rule</th></tr></thead><tbody>
+<tr><td style="color:var(--accent)">1</td><td style="color:var(--accent2);font-weight:500">Letterhead</td><td>Company dependent</td><td>Company name, address, phone, fax, logo, email, or web address.</td></tr>
+<tr><td style="color:var(--accent)">2</td><td style="color:var(--accent2);font-weight:500">Dateline</td><td><span style="color:var(--green)">Required</span></td><td>Usually 3 lines below letterhead. With 1-inch top margin: space down <strong>6 to 9 lines</strong>. NEVER predate or postdate.</td></tr>
+<tr><td style="color:var(--accent)">3</td><td style="color:var(--accent2);font-weight:500">Inside Address</td><td><span style="color:var(--green)">Required</span></td><td>Space down <strong>about 4 lines</strong> from dateline. (Short letters: 6–7 lines; long letters: 3 lines.) Spell out "Suite" and "Floor." Specific info first, general last.</td></tr>
+<tr><td style="color:var(--accent)">4</td><td style="color:var(--accent2);font-weight:500">Attention Line</td><td><span style="color:var(--text3)">Optional</span></td><td>Traditional: double space below inside address. <strong>Modern preferred: first line of the inside address.</strong></td></tr>
+<tr><td style="color:var(--accent)">5</td><td style="color:var(--accent2);font-weight:500">Salutation</td><td><span style="color:var(--green)">Required</span></td><td>Double-space after inside address. Starts with <em>Dear</em>. Standard punctuation = <strong>colon (:)</strong>. Comma = social-business only. No punctuation = open style.</td></tr>
+<tr><td style="color:var(--accent)">6</td><td style="color:var(--accent2);font-weight:500">Subject Line</td><td><span style="color:var(--text3)">Optional</span></td><td>Double-space below the salutation. Can use <strong><em>In re</em> or <em>Re</em></strong> in place of Subject (common in legal correspondence).</td></tr>
+<tr><td style="color:var(--accent)">7</td><td style="color:var(--accent2);font-weight:500">Body</td><td><span style="color:var(--green)">Required</span></td><td>Double-space after subject line (or salutation if no subject). Single-spaced within paragraphs; double-spaced between. <strong>Second-page rule:</strong> 3-line heading (Name, Page 2, Date).</td></tr>
+<tr><td style="color:var(--accent)">8</td><td style="color:var(--accent2);font-weight:500">Complimentary Closing</td><td><span style="color:var(--green)">Required</span></td><td>Double-space below the last line of the body. Follow with a <strong>comma</strong> (e.g., <em>Sincerely,</em>).</td></tr>
+<tr><td style="color:var(--accent)">9</td><td style="color:var(--accent2);font-weight:500">Company Signature</td><td><span style="color:var(--text3)">Optional</span></td><td>Double-space below closing. Type company name in <strong>ALL-CAPITAL LETTERS</strong>.</td></tr>
+<tr><td style="color:var(--accent)">10</td><td style="color:var(--accent2);font-weight:500">Writer's Name</td><td><span style="color:var(--green)">Required</span></td><td>Space down <strong>4 lines</strong> below closing (or company signature) for handwritten signature space.</td></tr>
+<tr><td style="color:var(--accent)">11</td><td style="color:var(--accent2);font-weight:500">Writer's Title</td><td><span style="color:var(--text3)">Optional</span></td><td>Directly on the line below the writer's name.</td></tr>
+<tr><td style="color:var(--accent)">12</td><td style="color:var(--accent2);font-weight:500">Reference Initials</td><td>Conditional</td><td>Double-space below writer's name/title. <strong>Only</strong> needed if the typist is NOT the writer.</td></tr>
+<tr><td style="color:var(--accent)">13</td><td style="color:var(--accent2);font-weight:500">File Name Notation</td><td><span style="color:var(--text3)">Optional</span></td><td>Below reference initials. Consists of a name, dot separator, and 1–3 character extension.</td></tr>
+<tr><td style="color:var(--accent)">14</td><td style="color:var(--accent2);font-weight:500">Enclosure Notation</td><td><span style="color:var(--text3)">Optional</span></td><td>Double-space below writer's name. Used if items are placed <strong>loose inside the envelope</strong> (not stapled/clipped). E.g., <em>Enclosures: 2</em>.</td></tr>
+<tr><td style="color:var(--accent)">15</td><td style="color:var(--accent2);font-weight:500">Attachment Notation</td><td><span style="color:var(--text3)">Optional</span></td><td>Used <strong>instead of enclosure notation</strong> if you <strong>paper-clip</strong> an item to the letter.</td></tr>
+<tr><td style="color:var(--accent)">16</td><td style="color:var(--accent2);font-weight:500">Copy Notation</td><td><span style="color:var(--text3)">Optional</span></td><td>Uses <strong>cc</strong> (courtesy copy) or <strong>c</strong>. Use <strong>bcc</strong> (blind copy) only if the addressee should NOT know a copy was sent. Single-space between multiple notations.</td></tr>
+<tr><td style="color:var(--accent)">17</td><td style="color:var(--accent2);font-weight:500">Postscript (PS)</td><td><span style="color:var(--text3)">Optional</span></td><td>Start on the <strong>second line below</strong> the last notation. Typed as <em>PS.</em> or <em>PS:</em></td></tr>
+</tbody></table></div></div>
+
+<div class="section-block"><div class="section-label">Critical Spacing Quick-Reference</div>
+<div class="table-wrap"><table><thead><tr><th>From</th><th>To</th><th>Spacing</th></tr></thead><tbody>
+<tr><td>Letterhead</td><td>Dateline</td><td style="color:var(--accent2)">3 lines below letterhead / 6–9 lines from top margin</td></tr>
+<tr><td>Dateline</td><td>Inside Address</td><td style="color:var(--accent2)">About 4 lines (3 for long letters; 6–7 for short letters)</td></tr>
+<tr><td>Inside Address</td><td>Salutation</td><td style="color:var(--accent2)">Double-space (1 blank line)</td></tr>
+<tr><td>Salutation</td><td>Subject Line or Body</td><td style="color:var(--accent2)">Double-space (1 blank line)</td></tr>
+<tr><td>Between body paragraphs</td><td></td><td style="color:var(--accent2)">Double-space (1 blank line)</td></tr>
+<tr><td>Last body line</td><td>Complimentary Closing</td><td style="color:var(--accent2)">Double-space (1 blank line)</td></tr>
+<tr><td>Closing</td><td>Writer's Name</td><td style="color:var(--accent2)">4 lines (for handwritten signature)</td></tr>
+<tr><td>Writer's Name/Title</td><td>Reference Initials</td><td style="color:var(--accent2)">Double-space (1 blank line)</td></tr>
+</tbody></table></div></div>
+
+<div class="section-block"><div class="section-label">Annotated Block Letter Example</div>
+<div class="letter-demo"><span class="lbl">── LETTERHEAD ──────────────────────────────────────────</span>
+<span class="val">Finest Department Store
+1505 Sales Boulevard, Suite 401
+Portage, IN 46368</span>
+
+<span class="lbl">── DATELINE (6–9 lines from top / 3 lines below letterhead)</span>
+<span class="val">May 31, 2026</span>
+
+<span class="lbl">── INSIDE ADDRESS (4 lines below dateline) ─────────────</span>
+<span class="val">Attention: Credit Department
+Finest Department Store
+1505 Sales Boulevard, Suite 401
+Portage, IN 46368</span>
+
+<span class="lbl">── SALUTATION (double-space after inside address) ──────</span>
+<span class="val">Dear Client Representative:</span>
+
+<span class="lbl">── SUBJECT LINE (double-space after salutation) ────────</span>
+<span class="val">Subject: Invoicing Discrepancy for Account #4492</span>
+
+<span class="lbl">── BODY (double-space after subject line) ──────────────</span>
+<span class="val">The introductory paragraph connects your reader with your purpose. 
+Allow yourself to sound as if you are one human being communicating 
+with another.
+
+The body contains information, explanation, and evidence. The closing 
+paragraph states required actions.</span>
+
+<span class="lbl">── COMPLIMENTARY CLOSING (double-space after body) ─────</span>
+<span class="val">Sincerely,</span>
+
+<span class="lbl">── COMPANY SIGNATURE (double-space after closing) ──────</span>
+<span class="val">FINEST DEPARTMENT STORE</span>
+
+<span class="lbl">── WRITER'S NAME (4 lines for handwritten signature) ───</span>
+<span class="val">John Smithe
+Credit Manager</span>
+
+<span class="lbl">── REFERENCE INITIALS (double-space below name) ────────</span>
+<span class="val">JS:am</span>
+
+<span class="lbl">── ENCLOSURE NOTATION (double-space) ───────────────────</span>
+<span class="val">Enclosures:
+1. $545 check
+2. Maintenance Contract</span>
+
+<span class="lbl">── COPY NOTATION (double-space) ────────────────────────</span>
+<span class="val">cc: Corporate Accounting Department</span>
+
+<span class="lbl">── POSTSCRIPT (second line below last notation) ────────</span>
+<span class="val">PS. It was great to see you at the meeting!</span></div></div>
+`;
+      }
+      function notes4() {
+        return `
+<div class="section-block"><div class="section-label">What is Negotiation?</div>
+<div class="highlight-box">Negotiation is a <strong>structured, collaborative problem-solving process</strong> used when two or more parties have conflicting needs, priorities, or constraints. The core objective is to <strong>meet as many interests as possible</strong>, concluding an agreement that yields mutual benefits for all involved. It is NOT about winning — it is about solving.</div>
+<div class="note-box"><div class="note-intro"><strong style="color:var(--accent2)">Strategic purposes of negotiation:</strong></div>
+<ul class="note-list">
+<li>Solve complex problems.</li>
+<li>Salvage and strengthen relationships — negotiation is <strong>NOT</strong> simply about "winning."</li>
+<li>Restore and maintain goodwill.</li>
+<li>Reach an agreement that is entirely acceptable to all parties.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Argument vs. Negotiation — Critical Distinction</div>
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>Argument</th><th>Negotiation</th></tr></thead><tbody>
+<tr><td style="color:var(--accent2);font-weight:500">Core Focus</td><td style="color:var(--red)">Winning — prove the other side wrong</td><td style="color:var(--green)">Problem-Solving — find an optimal solution for all</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Tone</td><td style="color:var(--red)">Emotional &amp; defensive; driven by pride or fear</td><td style="color:var(--green)">Logical &amp; evidence-based; relying on objective metrics</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Impact</td><td style="color:var(--red)">Damaging — erodes trust, stalls progress</td><td style="color:var(--green)">Strengthening — builds professional trust</td></tr>
+</tbody></table></div>
+<div class="teal-box"><strong>Wrong (Argument):</strong> "This deadline is impossible." — absolute, emotional, no path forward.<br><br><strong>Right (Negotiation):</strong> "Given the current scope and testing requirements, meeting this deadline may affect quality. Can we adjust the scope or timeline?" — uses logic, highlights shared risk, invites collaboration.</div></div>
+
+<div class="section-block"><div class="section-label">The 3 Negotiation Outcomes</div>
+<div class="three-col">
+<div class="outcome-card win-win"><div class="outcome-title">Win-Win (Collaborative)</div><div class="outcome-desc">Both parties walk away with their primary objectives met. Preserves quality, morale, and professional relationships. Example: deliver MVP by early deadline; complex features in Phase 2.</div></div>
+<div class="outcome-card win-lose"><div class="outcome-title">Win-Lose (Competitive)</div><div class="outcome-desc">One side dominates; the other feels exploited. Short-sighted. The "winner" gains short-term compliance but the "loser" delivers stressed, compromised work. Used cautiously in rare situations like one-time contracts.</div></div>
+<div class="outcome-card lose-lose"><div class="outcome-title">Lose-Lose (Breakdown)</div><div class="outcome-desc">Both parties fail entirely. Triggered by emotional stubbornness or complete communication breakdown. The ultimate failure state — wasted time, ruined relationships, no functional outcome.</div></div>
+</div>
+<div class="note-box"><div class="note-intro"><strong style="color:var(--accent2)">Also recognized:</strong></div>
+<ul class="note-list"><li><b>Lose-Win (Accommodation):</b> One party yields entirely to the other's demands.</li></ul>
+</div></div>
+
+<div class="section-block"><div class="section-label">BATNA & WATNA</div>
+<div class="definition-grid">
+<div class="def-card" style="border-left:2px solid var(--green)">
+<div class="def-term" style="color:var(--green)">BATNA</div>
+<div class="def-text"><strong>Best Alternative to a Negotiated Agreement</strong> — your ideal fallback position or safety net if negotiations fail.</div>
+</div>
+<div class="def-card" style="border-left:2px solid var(--red)">
+<div class="def-term" style="color:var(--red)">WATNA</div>
+<div class="def-text"><strong>Worst Alternative to a Negotiated Agreement</strong> — the worst-case scenario if an agreement cannot be reached at all.</div>
+</div>
+</div></div>
+
+<div class="section-block"><div class="section-label">The 4-Step Negotiation Process</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Step 1 — Problem Analysis:</b> Analyze the problem meticulously to determine the underlying interests of each party. Identify the core issues, interested parties, and desired outcomes.</li>
+<li><b>Step 2 — Preparation:</b> Establish clear objectives and plan a comprehensive negotiation strategy. Study the history of the relationship and past negotiations. Discover areas of agreement and common goals.</li>
+<li><b>Step 3 — Negotiate:</b> List all possible options and creative alternatives. Assess each option against its degree of acceptability to both parties. Settle collaboratively on a mutually preferred option.</li>
+<li><b>Step 4 — Check:</b> Explicitly confirm the final agreement. Summarize the conclusions and end the discussion on a healthy, positive note.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Negotiation Strategies & Styles</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Win-Win / Collaborative:</b> Best for long-term relationships (core team, full-time employment). Open communication to maximize value for everyone.</li>
+<li><b>Win-Lose / Competitive:</b> Used cautiously in rare situations such as one-time contracts.</li>
+<li><b>Interest-Based Negotiation:</b> Instead of arguing rigid demands, examines underlying needs. E.g., instead of "I want Postgres vs. MongoDB," examine data scalability vs. relational integrity needs and find the tool satisfying both.</li>
+<li><b>Compromise:</b> Used when time is running out or stakes are low. Both sides give up minor preferences to cross the finish line quickly.</li>
+<li><b>Avoidance / Withdrawal:</b> Useful to let emotions cool for minor issues, but should <strong>NEVER</strong> be used for critical decisions — always results in Lose-Lose.</li>
+<li><b>Accommodation:</b> One party willingly adapts to meet the urgent needs of the other.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Preparation — The Foundation</div>
+<div class="teal-box"><strong>Effective negotiation begins before the discussion.</strong> Prepared negotiators communicate confidently and professionally. Key steps:
+<ul style="margin-top:8px;padding-left:1.2rem">
+<li>Assess your technical value</li>
+<li>Understand system constraints</li>
+<li>Estimate time realistically</li>
+<li>Identify your minimum acceptable outcome</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Ethical Negotiation</div>
+<div class="note-box"><ul class="note-list">
+<li>Do not exaggerate skills or capabilities.</li>
+<li>Communicate risks honestly.</li>
+<li>Avoid making unrealistic commitments.</li>
+<li>Respect and honor all agreements.</li>
+<li>Unethical negotiation leads to project failure and professional discredit.</li>
+</ul></div>
+<div class="amber-box"><strong>Long-term impact of strong negotiation skills:</strong> Fair workloads · Realistic deadlines · Better compensation · Career advancement · Leadership opportunities.<br><br><strong>Cultural note:</strong> Organizational culture is NOT written down — learned through imitation and observation. What works in one organization may not work in another.</div></div>
+<div class="section-block"><div class="section-label">Win-Win vs. Win-Lose — Comparative Analysis</div>
+<div class="table-wrap"><table><thead><tr><th>Dimension</th><th style="color:var(--green)">Win-Win</th><th style="color:var(--amber)">Win-Lose</th></tr></thead><tbody>
+<tr><td style="color:var(--accent2);font-weight:500">Long-Term Relationships</td><td>Establishes durable, high-trust networks and reliable partnerships.</td><td>Erases trust; causes early attrition, vendor abandonment, and resentment.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Project Quality</td><td>Yields clean work, robust outcomes, scalable solutions.</td><td>Results in severe technical debt, fragile design, and unpatched problems.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Stress &amp; Workload</td><td>Distributes burdens equitably, sustaining team productivity.</td><td>Distributes tasks unfairly, causing severe burnout.</td></tr>
+</tbody></table></div></div>
+<div class="section-block"><div class="section-label">Negotiation Scenarios — Applied Examples</div>
+<div class="note-box"><div class="note-intro"><strong style="color:var(--accent2)">Scenario 1 — Deadline Pressure (Win-Lose to Win-Win):</strong></div>
+<ul class="note-list">
+<li><b>Win-Lose outcome:</b> You silently accept the unrealistic deadline. Manager wins short-term compliance; you lose via stress and compromised quality.</li>
+<li><b>Win-Win response:</b> "I understand hitting this date is crucial. However, deploying on this timeline forces us to bypass critical patches. If we reduce the feature scope to core modules, we can still launch on time safely."</li>
+<li><b>Strategy:</b> Interest-Based — addresses the manager's underlying need (launching on time) while protecting the underlying priority (quality/security).</li>
+</ul></div>
+<div class="note-box"><div class="note-intro"><strong style="color:var(--accent2)">Scenario 2 — Job Offer Below Expected Salary:</strong></div>
+<ul class="note-list">
+<li><b>If accepted immediately:</b> Win-Lose. Employer secures an asset below market value; you start feeling undervalued, leading to early turnover.</li>
+<li><b>Two non-salary elements to negotiate:</b> Remote work flexibility or flexible hours; professional development budgets (certifications, cloud credits).</li>
+<li><b>Professional negotiation statement:</b> "Thank you for this exciting offer. Given my experience and familiarity with your architecture, I am confident I will contribute immediately. If we could adjust the base salary, or consider additional remote flexibility, I would be thrilled to sign today."</li>
+</ul></div></div>
+<div class="section-block"><div class="section-label">Why Lose-Lose is Common in Poorly Managed Teams</div>
+<div class="note-box"><ul class="note-list">
+<li>Lack of psychological safety and transparency in poorly managed teams.</li>
+<li>When disagreements arise, people dig into personal positions rather than focusing on collective targets.</li>
+<li>Without a structured framework to arbitrate objectively, communication collapses entirely.</li>
+<li>Both sides remain stubborn until the project fails — wasted time, ruined relationships, no functional outcome.</li>
+</ul></div></div>
+`;
+      }
+      function notes5() {
+        return `
+<div class="section-block"><div class="section-label">What is an Employment Interview?</div>
+<div class="highlight-box">An interview is a <strong>bidirectional exchange of information</strong> where the employer seeks the best talent and the applicant evaluates if the role matches their personal goals. Employers often use a <strong>multi-stage process</strong> spanning days or weeks, sometimes involving a dozen or more individual interviews at selective firms. Explore a wide range of firms to expand options and increase job offer odds.</div></div>
+
+<div class="section-block"><div class="section-label">The 3-Stage Interview Sequence</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Stage 1 — Screening:</b> Goal: filter out unqualified applicants. Occurs via on-campus visits, telephone, automated phone services, or computer systems. Answers must be short, focused, and free from external interruptions.</li>
+<li><b>Stage 2 — Selection:</b> Goal: identify top candidates. Show deep interest, listen actively, ask research-driven questions, and directly relate your skills to organizational needs.</li>
+<li><b>Stage 3 — Final Stage/Evaluation:</b> Often conducted by a higher-ranking executive. The primary objective is frequently for the company to <strong>"sell" the candidate on the benefits of joining</strong> — not just evaluate them.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Types of Interviews</div>
+<div class="table-wrap"><table><thead><tr><th>Type</th><th>Description &amp; Key Notes</th></tr></thead><tbody>
+<tr><td style="color:var(--accent2);font-weight:500">Structured</td><td>Interviewer or computer asks a predetermined sequence. Easy to filter and compare across all candidates.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Unstructured (Open-Ended)</td><td>Interviewer adapts questions dynamically. Conversational feel; candidates must keep answers focused and professional.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Panel</td><td>One candidate + multiple interviewers simultaneously. Build rapport with every individual; tailor responses to each interviewer's professional focus.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Group</td><td>One or more interviewers + several candidates. Balance standing out vs. being a respectful, supportive team player.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Behavioral</td><td>Candidates describe specific PAST incidents. Structure: <strong>Situation → Action → Outcome</strong>. Strong predictor of job success because it avoids canned answers.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Situational</td><td>Like behavioral, but questions focus on how a candidate WOULD handle hypothetical future scenarios tailored to job duties.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Working</td><td>Candidates perform actual work-related tasks — leading a brainstorm, solving a business problem, role-playing, or giving a presentation.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Stress</td><td>Long silences, open criticism, constant interruptions, or hostile reactions. Strategy: recognize the tactic, collect thoughts for a few seconds, respond calmly.</td></tr>
+</tbody></table></div></div>
+
+<div class="section-block"><div class="section-label">Interview Media</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Telephone:</b> Treat with same seriousness as face-to-face. Have résumé, materials, and key talking points ready. Vocal tone is critical — no nonverbal cues available.</li>
+<li><b>Email and IM:</b> Primarily used in screening. Advantage: allows time to thoroughly review and edit each response before sending.</li>
+<li><b>Video (Live and Recorded):</b> Dress and groom fully. Sit up straight. Look directly at the <strong>CAMERA</strong>. Ensure background is free of professional distractions or embarrassing items.</li>
+<li><b>Online Simulations:</b> Range from questionnaires to complex job simulations. Help identify talent, give realistic job previews, and mitigate discrimination risks by focusing on objective skills.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">What Employers Look For</div>
+<div class="definition-grid">
+<div class="def-card" style="border-top:2px solid var(--accent2)"><div class="def-term">Capability</div><div class="def-text">Can the candidate handle the core responsibilities? Judged on academic preparation, past work experience, and job-related personality traits.</div></div>
+<div class="def-card" style="border-top:2px solid var(--teal)"><div class="def-term">Organizational Fit</div><div class="def-text">Will the candidate match the company's culture? Employers look for shared values (confidence, curiosity, dedication, ethics) and compatibility with corporate styles.</div></div>
+</div></div>
+
+<div class="section-block"><div class="section-label">Preemployment Testing</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Integrity Tests:</b> Measure truthfulness, honesty, and trustworthiness.</li>
+<li><b>Personality Tests:</b> Evaluate work attitudes, core interests, managerial potential, dependability, motivation, and corporate commitment. Reliability as predictors is debated.</li>
+<li><b>Cognitive Tests:</b> Assess reading comprehension, mathematics, problem-solving, and decision-making.</li>
+<li><b>Language Proficiency Tests:</b> Evaluate specific reading or writing capabilities.</li>
+<li><b>Job Knowledge/Skills Tests:</b> Measure specific professional competencies (e.g., require an accountant to construct a balance sheet).</li>
+<li><b>Substance Tests:</b> Drug and alcohol screenings. Used by majority of companies to protect workplace safety, boost productivity, and prevent legal liability. Sometimes critiqued as invasion of privacy.</li>
+<li><b>Background Checks:</b> Credit history, criminal records, educational credentials. Assume a general search engine check WILL be done on you. Preparation: check transcripts for accuracy, fix credit errors, clean social media.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Preparing for the Interview — Planning Checklist</div>
+<div class="note-box"><ul class="note-list">
+<li>Learn about the organization — its core business operations, target consumer markets, and strategic/tactical challenges.</li>
+<li>Learn as much as you can about the people who will be interviewing you (ask the company contact for their names — this is entirely acceptable).</li>
+<li>Plan for the employer's questions, including questions about tough decisions you've made, perceived shortcomings, what you didn't like about previous jobs, and your career plans.</li>
+<li>Plan questions of your own to find out whether this is the right job and organization for you.</li>
+<li>Bolster your confidence by removing as many sources of apprehension as you can.</li>
+<li>Polish your interview style by staging mock interviews. Record them and evaluate yourself.</li>
+<li>Present a professional appearance.</li>
+<li>Be ready when you arrive: bring pen, paper, list of questions, multiple résumé copies, research outline, and any correspondence about the position.</li>
+<li>Double-check the location and time; map out the route beforehand.</li>
+<li>Arrive early, but don't approach the reception desk until <strong>5 minutes</strong> before your appointed time.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Boosting Confidence &amp; Polishing Interview Style</div>
+<div class="note-box"><ul class="note-list">
+<li>Remind yourself that you have value to offer the employer and that they already think highly enough of you to invite you to an interview.</li>
+<li>If some aspect of your appearance makes you uneasy, correct it if possible or offset it by emphasizing positive traits (warmth, wit, intelligence, charm).</li>
+<li>Focus on your <strong>strengths</strong>, not weaknesses. Focus on how you can <strong>help the organization succeed</strong>, not on how you'll perform.</li>
+<li>Stage <strong>mock interviews</strong> with a friend or use an interview simulator app. Record them and evaluate yourself.</li>
+<li>Pay close attention to the <strong>length of your planned answers</strong> — give complete answers but don't ramble on minor or irrelevant details.</li>
+<li>Evaluate nonverbal behavior: posture, eye contact, facial expressions, hand gestures. Do you come across as alert and upbeat or passive and withdrawn?</li>
+<li>If you tend to speak in a monotone, practice speaking in a livelier style with more inflection and emphasis.</li>
+<li>Watch out for <strong>filler words</strong> such as "uh" and "um." Train yourself to <strong>pause silently</strong> instead as you gather your thoughts.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">The 3 Stages of an Interview Itself</div>
+<div class="note-box"><ul class="note-list">
+<li><b>The Warm-Up [MOST IMPORTANT]:</b> Studies suggest many interviewers make up their minds within the <strong>first 20 seconds</strong>. Don't let your guard down during small talk — it's part of the evaluation. Body language: stand/sit up straight, maintain natural eye contact, don't fidget. Offer a firm (not crushing) handshake. Repeat the interviewer's name when introduced ("It's a pleasure to meet you, Ms. Litton"). Wait until invited to be seated. Let the interviewer start the discussion.</li>
+<li><b>The Question-and-Answer Stage:</b> Let the interviewer lead. Never answer a question before they finish asking it — interrupting is rude and the last few words might alter how you respond. Avoid yes/no answers — expand to show knowledge. If faced with a tough question, pause before responding. Frame your responses as <strong>brief stories (30–90 seconds)</strong> — cohesive stories stick in the listener's mind more than disconnected facts. Ask your own prepared questions. Watch for nonverbal signals (nods, smiles = you are making progress).</li>
+<li><b>The Close:</b> Watch and listen for signs the interview is ending (checking time, summary of discussion). Final opportunity to emphasize your value and correct any misconceptions. Save 1–2 questions from your list. Thank the interviewer and express interest. If offered the job and not ready, ask for time — it's entirely appropriate. <strong>Don't bring up salary — let the interviewer raise it.</strong> End with a warm smile, a handshake, and thanks.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Table 19.3 — 25 Common Interview Questions to Prepare</div>
+<div class="table-wrap"><table><thead><tr><th>Category</th><th>Questions</th></tr></thead><tbody>
+<tr><td style="color:var(--accent2);font-weight:500" rowspan="5">Questions About College</td><td>What courses in college did you like most? Least? Why?</td></tr>
+<tr><td>Do you think your extracurricular activities in college were worth the time you spent on them? Why or why not?</td></tr>
+<tr><td>When did you choose your college major? Did you ever change your major? If so, why?</td></tr>
+<tr><td>Do you feel you did the best scholastic work you are capable of?</td></tr>
+<tr><td>How has your college education prepared you for this position?</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500" rowspan="7">Questions About Employers and Jobs</td><td>Why did you leave your last job?</td></tr>
+<tr><td>Why did you apply for this job opening?</td></tr>
+<tr><td>Why did you choose your particular field of work?</td></tr>
+<tr><td>What are the disadvantages of your chosen field?</td></tr>
+<tr><td>What do you know about our company?</td></tr>
+<tr><td>What do you think about how this industry operates today?</td></tr>
+<tr><td>Why do you think you would like this particular type of job?</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500" rowspan="7">Questions About Work Experiences &amp; Expectations</td><td>What was your biggest failure?</td></tr>
+<tr><td>What is your biggest weakness?</td></tr>
+<tr><td>Describe an experience in which you learned from one of your mistakes.</td></tr>
+<tr><td>What motivates you? Why?</td></tr>
+<tr><td>What do you think determines a person's progress in a good organization?</td></tr>
+<tr><td>What have you done that shows initiative and willingness to work?</td></tr>
+<tr><td>Why should we hire you?</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500" rowspan="6">Questions About Work Habits</td><td>Do you prefer working with others or by yourself?</td></tr>
+<tr><td>What type of boss do you prefer?</td></tr>
+<tr><td>Have you ever had any difficulty getting along with colleagues or supervisors?</td></tr>
+<tr><td>What would you do if given an unrealistic deadline for a task or project?</td></tr>
+<tr><td>How do you feel about overtime work?</td></tr>
+<tr><td>How do you handle stress or pressure on the job?</td></tr>
+</tbody></table></div>
+<div class="highlight-box"><strong>Key tip:</strong> Look for ways to frame your responses as <strong>brief stories (30–90 seconds)</strong> rather than simple declarative answers. Cohesive stories stick in the listener's mind more effectively than disconnected facts and statements.</div>
+<div class="note-box"><div class="note-intro"><strong style="color:var(--accent2)">Specific difficult questions — guidance from the textbook:</strong></div>
+<ul class="note-list">
+<li><b>"What didn't you like about previous jobs?"</b> — Describe something in a way that puts you in a positive light (e.g., "limited opportunities to apply my skills"). <strong>NEVER make negative comments about former employers or colleagues.</strong></li>
+<li><b>"Tell me something about yourself."</b> — Briefly share the "story of you" — summarizing where you have been and where you would like to go — in a way that aligns your interests with the company's. Alternatively, focus on a specific valuable skill, or offer a short summary of what colleagues think about you. Be ready with a <strong>confident, memorable answer</strong>.</li>
+<li><b>"How do you spend your free time?"</b> — Prepare an honest answer that puts you in a positive light without revealing more than you're comfortable revealing. Sports, hobbies, reading, family, and volunteer work are all "safe" answers.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Table 19.4 — 10 Questions to Ask an Interviewer</div>
+<div class="table-wrap"><table><thead><tr><th>Question to Ask</th><th>Why You Ask It</th></tr></thead><tbody>
+<tr><td style="color:var(--text)">What are the job's major responsibilities?</td><td>A vague answer could mean responsibilities have not been clearly defined — guaranteed to cause frustration if you take the job.</td></tr>
+<tr><td style="color:var(--text)">What qualities do you want in the person who fills this position?</td><td>Helps you go beyond the job description to understand what the company really wants.</td></tr>
+<tr><td style="color:var(--text)">How do you measure success for someone in this position?</td><td>A vague answer could mean the expectations you will face are unrealistic or ill-defined.</td></tr>
+<tr><td style="color:var(--text)">What is the first problem that needs the attention of the person you hire?</td><td>Helps you prepare and can signal whether you're about to jump into a problematic situation.</td></tr>
+<tr><td style="color:var(--text)">How well do my qualifications align with the current and future needs of this position?</td><td>Gives you the opportunity to address any unspoken concerns the interviewer might have.</td></tr>
+<tr><td style="color:var(--text)">Why is this job now vacant?</td><td>If the previous employee got promoted, that's a good sign. If the person quit, that might not be such a good sign.</td></tr>
+<tr><td style="color:var(--text)">What makes your organization different from others in the industry?</td><td>Helps assess whether the company has a clear strategy to succeed and whether top managers communicate it.</td></tr>
+<tr><td style="color:var(--text)">How would you define your organization's managerial philosophy?</td><td>You want to know whether the managerial philosophy is consistent with your own working values.</td></tr>
+<tr><td style="color:var(--text)">What is a typical workday like for you?</td><td>The interviewer's response can give clues about daily life at the company.</td></tr>
+<tr><td style="color:var(--text)">What are the next steps in the selection process? What's the best way to follow up with you?</td><td>Gives clues about where the company is in the hiring process and hints about where you stand.</td></tr>
+</tbody></table></div></div>
+
+<div class="section-block"><div class="section-label">25 Warning Signs — What Interviewers Don't Like</div>
+<div class="note-box"><ul class="note-list">
+<li>Poor personal appearance</li>
+<li>Overbearing, overaggressive, or conceited demeanor; a "superiority complex"; a know-it-all attitude</li>
+<li>Inability to express ideas clearly; poor voice, diction, or grammar</li>
+<li>Lack of knowledge or experience</li>
+<li>Poor preparation for the interview</li>
+<li>Lack of interest in the job</li>
+<li>Lack of planning for career; lack of purpose or goals</li>
+<li>Lack of enthusiasm; passive and indifferent demeanor</li>
+<li>Lack of confidence and poise; appearance of being nervous and ill at ease</li>
+<li>Insufficient evidence of achievement</li>
+<li>Failure to participate in extracurricular activities</li>
+<li>Overemphasis on money; interest only in the best offer</li>
+<li>Poor scholastic record</li>
+<li>Unwillingness to start at the bottom; expecting too much too soon</li>
+<li>Tendency to make excuses; evasive answers; hedging on unfavorable factors</li>
+<li>Lack of tact</li>
+<li>Lack of maturity</li>
+<li>Lack of courtesy and common sense — <strong>including answering mobile phones, texting, or chewing gum during the interview</strong> (identified as the single MOST COMMON mistake candidates make)</li>
+<li>Being critical of past or present employers</li>
+<li>Lack of social skills</li>
+<li>Marked dislike for schoolwork</li>
+<li>Lack of vitality</li>
+<li>Failure to look interviewer in the eye</li>
+<li>Limp, weak handshake</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Professional Appearance Guide</div>
+<div class="note-box"><ul class="note-list">
+<li>Neat, "adult" hairstyle</li>
+<li>For formal environments: conservative business suit in dark solid color or subtle pattern (e.g., pinstripes). White shirt and understated tie for men; coordinated blouse for women. <strong>No exposed midriffs, short skirts, or plunging necklines.</strong></li>
+<li>For less formal environments: smart "business casual" — pressed shirt/blouse and nice slacks or a skirt.</li>
+<li>Limited jewelry (men especially should wear very little)</li>
+<li>No visible piercings other than one or two earrings for women only</li>
+<li>No visible tattoos (though this expectation is changing in some industries)</li>
+<li>Stylish but professional shoes (no extreme high heels or casual shoes)</li>
+<li>Little or no perfume or cologne (some people are allergic; many are put off by strong smells)</li>
+<li>Subtle makeup (for women)</li>
+<li>Exemplary personal hygiene</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Handling Potentially Discriminatory Questions</div>
+<div class="note-box"><ul class="note-list">
+<li>Federal, state, and local laws prohibit employment discrimination on the basis of race, ethnicity, gender, age (between 40 and 70), marital status, religion, national origin, or disability.</li>
+<li>If an interviewer asks a potentially unlawful question, you have these options:
+  <ol style="margin-top:6px;margin-left:20px;display:flex;flex-direction:column;gap:4px">
+    <li style="font-size:14px">Answer the question as it was asked</li>
+    <li style="font-size:14px">Ask tactfully whether the question might be prohibited</li>
+    <li style="font-size:14px">Simply refuse to answer it</li>
+    <li style="font-size:14px">Try to answer <strong>"the question behind the question"</strong></li>
+  </ol>
+</li>
+<li><b>Example:</b> If asked inappropriately whether you are married, the interviewer may really be asking if you are willing to travel or relocate — both of which are acceptable questions.</li>
+<li>Even if you answer the question, think hard before accepting a job offer from that company if you have alternatives.</li>
+<li>If you believe questions are unreasonable or discriminatory, you have the option of filing a complaint with the <strong>U.S. Equal Employment Opportunity Commission (EEOC)</strong>.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Legally Acceptable vs. Discriminatory Questions</div>
+<div class="table-wrap"><table><thead><tr><th style="color:var(--green)">Interviewers MAY Ask</th><th style="color:var(--red)">But NOT This</th></tr></thead><tbody>
+<tr><td>What is your name?</td><td>What was your maiden name?</td></tr>
+<tr><td>Are you over 18?</td><td>When were you born?</td></tr>
+<tr><td>Did you graduate from high school?</td><td>When did you graduate from high school?</td></tr>
+<tr><td>[Questions about race are not allowed]</td><td>What is your race?</td></tr>
+<tr><td>Can you perform [specific tasks]?</td><td>Do you have physical or mental disabilities?</td></tr>
+<tr><td>Are you currently using illegal drugs?</td><td>Have you ever been addicted to drugs in the past?</td></tr>
+<tr><td>Would you be able to meet the job's requirement to frequently work weekends?</td><td>Would working weekends conflict with your religion?</td></tr>
+<tr><td>Do you have the legal right to work in the United States?</td><td>What country are you a citizen of?</td></tr>
+<tr><td>Have you ever been convicted of a felony?</td><td>Have you ever been arrested?</td></tr>
+<tr><td>This job requires that you speak Spanish. Do you?</td><td>What language did you speak in your home when you were growing up?</td></tr>
+</tbody></table></div></div>
+
+<div class="section-block"><div class="section-label">Salary Discussion During the Interview</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Golden rule:</b> Let the <strong>interviewer raise the subject of salary.</strong></li>
+<li>If asked salary requirements on an application or during interview, you can say your requirements are <strong>"open"</strong> or <strong>"negotiable"</strong> or that you expect a <strong>"competitive compensation package."</strong></li>
+<li>How far you can negotiate depends on: market demand for your skills, strength of the job market, company's compensation policies, company's financial health, and any other job offers you may have.</li>
+<li>You are <strong>negotiating a business deal</strong>, not asking for personal favors — focus on the unique value you can bring to the job.</li>
+<li>If salary isn't negotiable, look at the <strong>overall compensation and benefits package</strong>: signing bonus, profit sharing, retirement benefits, health coverage, vacation time, and other elements.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Communicating Across Cultures — Cross-Cultural Employee Selection</div>
+<div class="teal-box"><strong>Migration across borders is increasing.</strong> Diversity in employment is increasing. Recruitment processes need to reflect this diversity — from both the recruiter's AND the candidate's perspective.</div>
+<div class="note-box"><ul class="note-list">
+<li>Research comparative cultural norms before any cross-cultural interview. Resource: <strong>geert-hofstede.com</strong> for cultural analysis.</li>
+<li><b>Dress:</b> Some cultures require very formal attire; others require avoiding being too well-dressed so you don't appear too elite or arrogant.</li>
+<li><b>Questions:</b> Some cultures expect you to ask questions; in others, you only respond to questions.</li>
+<li><b>Tone:</b> Some cultures expect a serious and formal approach; others might be tolerant of a more relaxed style.</li>
+<li><b>Eye contact and body language:</b> Particularly important to research differences between eastern and western cultures.</li>
+<li><b>Gender differences</b> may also affect the process significantly.</li>
+<li><strong>Lack of cultural accommodation will result in no hire being completed.</strong></li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Post-Interview Messages — 5 Types</div>
+<div class="teal-box"><strong>The 24-Hour Rule:</strong> Companies flooded with applications move fast. If you don't respond to a company's outreach within 24 hours, they may quickly move on to another candidate.</div>
+<div class="table-wrap"><table><thead><tr><th>Message Type</th><th>Timeline</th><th>Key Strategy</th></tr></thead><tbody>
+<tr><td style="color:var(--accent2);font-weight:500">Thank-You / Follow-Up</td><td>Within <strong>2 days</strong></td><td>Reinforce why you are a great fit, correct any mistakes from interview, provide any updated or corrected facts. Specific subject line. Not generic. Can address a relocation preference or other issue raised.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Message of Inquiry</td><td>After deadline / <strong>2 weeks</strong> silence</td><td>Direct approach: identify position, state why you are inquiring (e.g., "Another firm has offered me a position and asked for a reply within two weeks"), ask politely for a decision while expressing preference for their organization.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Request for Time Extension</td><td>Immediately upon receiving offer</td><td>Buffer: open with strong statement of continued interest. Body: state need for more time giving specific reasons (prior commitments, other interviews). Avoid sounding blunt or self-centered. Acknowledge they may not accommodate you and give a specific reply date.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Letter of Acceptance</td><td>Within <strong>5 days</strong></td><td>Direct approach: begin with positive acceptance + thanks. Confirm salary, start date, specific terms. Conclude with eagerness to start. <strong>WARNING: a written acceptance can be a legally binding contract.</strong> Be absolutely certain before sending.</td></tr>
+<tr><td style="color:var(--accent2);font-weight:500">Letter Declining Offer</td><td>Promptly</td><td>Indirect approach: buffer (thank them warmly), state reasons tactfully, decline explicitly, end with gratitude to keep future doors open. Also: Letters of Resignation should always be gracious — never criticize employer or colleagues.</td></tr>
+</tbody></table></div>
+<div class="note-box"><div class="note-intro"><strong style="color:var(--accent2)">Key follow-up questions to ask (when following up after applying):</strong></div>
+<ul class="note-list">
+<li>Has a hiring decision been made yet?</li>
+<li>What can be expected next in the hiring process timeline?</li>
+<li>What is the company's timeframe for filling the position?</li>
+<li>Is it permissible to follow up again in a week if no contact has been made?</li>
+<li>Can any additional information or qualifications be provided?</li>
+</ul>
+<div class="note-intro" style="margin-top:10px"><strong style="color:var(--accent2)">Handling rejection:</strong> Remain persistent. Reapply when future positions open or send unsolicited application letters highlighting newly upgraded skills, additional coursework, or relevant experience — leading employers often reconsider strong runners-up.</div>
+</div></div>
+
+<div class="section-block"><div class="section-label">Application Letter — Key Rules</div>
+<div class="note-box"><ul class="note-list">
+<li><b>Go beyond the résumé:</b> Project professionalism and distinct qualifications. Emphasize personal attributes demonstrating strong work ethic (e.g., self-support and perseverance through demanding college work schedules).</li>
+<li><b>Salary:</b> Mention ONLY if explicitly requested by the employer. If required, use resources like the U.S. Bureau of Labor Statistics (<strong>bls.gov</strong>) and tie salary figures to specific value you will bring.</li>
+<li><b>Reference the résumé:</b> Towards the end of body paragraphs, explicitly guide the reader to the attached résumé by connecting a specific fact (e.g., customer service skills from a long-term part-time job) to the current application.</li>
+<li><b>Final paragraph — two critical functions:</b> (1) Respectfully ask for a specific action (typically an interview). (2) Facilitate an easy reply — offer flexibility for scheduling (phone, Skype, in-person), and clearly state your contact information and best times to be reached.</li>
+</ul></div></div>
+
+<div class="section-block"><div class="section-label">Interview Notes — Keeping Records</div>
+<div class="note-box"><ul class="note-list">
+<li>Maintain a <strong>notebook or simple database</strong> with information about each company.</li>
+<li>Record interviewers' answers to your questions.</li>
+<li>Keep contact information for each interviewer.</li>
+<li>Track the status of follow-up communication.</li>
+<li>Note upcoming interview appointments.</li>
+<li>Carefully organized notes will help you decide which company is the right fit when it comes time to choose from among job offers.</li>
+</ul></div></div>
+`;
+      }
+
+      const NOTES_FNS = [notes0, notes1, notes2, notes3, notes4, notes5];
+      let activeChapter = 0,
+        activeTab = "notes",
+        answers = {},
+        scoreCorrect = 0;
+
+      function renderPills() {
+        document.getElementById("chapterPills").innerHTML = META.map(
+          (m, i) => `
+    <button class="pill${i === activeChapter ? " active" : ""}" onclick="switchChapter(${i})">${m.title}</button>`,
+        ).join("");
+      }
+
+      function renderMain() {
+        const m = META[activeChapter],
+          qs = QS[activeChapter];
+        const done = Object.keys(answers).length;
+        const pct =
+          done === qs.length && qs.length > 0
+            ? Math.round((scoreCorrect / qs.length) * 100)
+            : null;
+        let html = `<div class="ch-header"><div class="ch-num">${m.num}</div><h2 class="ch-title">${m.title}</h2><div class="ch-sub">${m.sub}</div></div>`;
+        html += `<div class="tabs">
+    <button class="tab-btn${activeTab === "notes" ? " active" : ""}" onclick="switchTab('notes')">Notes</button>
+    <button class="tab-btn${activeTab === "quiz" ? " active" : ""}" onclick="switchTab('quiz')">Practice Questions (${qs.length})</button>
+  </div>`;
+        if (activeTab === "notes") {
+          html += NOTES_FNS[activeChapter]();
+        } else {
+          if (pct !== null) {
+            const bc =
+              pct >= 80 ? "badge-great" : pct >= 60 ? "badge-ok" : "badge-low";
+            const bt =
+              pct >= 80
+                ? "🔥 Exam Ready!"
+                : pct >= 60
+                  ? "Keep grinding"
+                  : "Review notes";
+            html += `<div class="score-strip"><span class="score-label">Score</span><span class="score-val">${scoreCorrect} / ${qs.length} — ${pct}%</span><span class="score-badge ${bc}">${bt}</span><button class="retry-btn" onclick="resetQuiz()">↺ Retry</button></div>`;
+          }
+          html += qs.map((q, qi) => renderQ(q, qi)).join("");
+        }
+        document.getElementById("mainContent").innerHTML = html;
+        renderPills();
+      }
+
+      function renderQ(q, qi) {
+        const ch = answers[qi];
+        const L = ["A", "B", "C", "D"];
+        let opts = q.opts
+          .map((o, oi) => {
+            let cls = "opt-btn";
+            if (ch !== undefined) {
+              if (oi === q.ans) cls += " reveal";
+              else if (oi === ch) cls += " wrong";
+            }
+            return `<button class="${cls}" onclick="answer(${qi},${oi})" ${ch !== undefined ? "disabled" : ""}><span class="opt-letter">${L[oi]}</span><span>${o}</span></button>`;
+          })
+          .join("");
+        let exp = "";
+        if (ch !== undefined) {
+          const ok = ch === q.ans;
+          exp = `<div class="explain"><span class="${ok ? "cw" : "ww"}">${ok ? "Correct." : "Incorrect."}</span> ${q.ex}</div>`;
+        }
+        return `<div class="q-block"><div class="q-num">Question ${qi + 1} of ${QS[activeChapter].length}</div><div class="q-text">${q.q}</div><div class="options">${opts}</div>${exp}</div>`;
+      }
+
+      function answer(qi, oi) {
+        if (answers[qi] !== undefined) return;
+        answers[qi] = oi;
+        if (oi === QS[activeChapter][qi].ans) scoreCorrect++;
+        renderMain();
+      }
+
+      function resetQuiz() {
+        answers = {};
+        scoreCorrect = 0;
+        renderMain();
+      }
+      function switchTab(t) {
+        activeTab = t;
+        answers = {};
+        scoreCorrect = 0;
+        renderMain();
+      }
+      function switchChapter(i) {
+        activeChapter = i;
+        activeTab = "notes";
+        answers = {};
+        scoreCorrect = 0;
+        renderMain();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      renderPills();
+      renderMain();
+    </script>
+  </body>
+</html>
